@@ -1,5 +1,6 @@
 function runOptimizer() {
     displaySliderValue();
+    loadChart();
 }
 
 function show_hide() {
@@ -215,9 +216,9 @@ function computeTotal() {
 
 // }
 
-$("#inputPls").click(function() {
-    $("#sliderHome").attr("data-max", "500");
-});
+// $("#inputPls").click(function() {
+//     $("#sliderHome").attr("data-max", "500");
+// });
 
 
 // $("#inputPls").click(function() {

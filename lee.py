@@ -7,7 +7,7 @@ import pulp
 from pulp import LpVariable,LpProblem,LpStatus,LpMaximize,LpMinimize
     
 
-from flask import Flask, render_template, request, redirect, url_for
+from flask import Flask, render_template, request, redirect, url_for,jsonify
 app = Flask(__name__)
 
 app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 0
@@ -143,8 +143,9 @@ def optimize():
         "minimized_maintenance": minimized_maintenance,
     }
     #return _input
-    json = dumps(r)
-    return json
+    #json = dumps(r)
+    #return json
+    return jsonify(r)
    
 if __name__ == '__main__':
     port = int(os.getenv('PORT'))

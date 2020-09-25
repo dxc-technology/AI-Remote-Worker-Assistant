@@ -61,7 +61,7 @@ function check() {
     document.getElementById("cb_health").checked = true;
     document.getElementById("cb_maintenance").checked = true;
 
-    document.getElementById("cb_savings").checked = true;
+    //document.getElementById("cb_savings").checked = true;
 
     document.getElementById("budgetCalculator").style.display == "block"
 
@@ -97,7 +97,7 @@ function uncheck() {
     document.getElementById("cb_health").checked = false;
     document.getElementById("cb_maintenance").checked = false;
 
-    document.getElementById("cb_savings").checked = false;
+    //document.getElementById("cb_savings").checked = false;
 }
 
 function saveCategory() {

@@ -138,6 +138,28 @@ df-messenger {
     --df-messenger-user-message: #479b3d;
 }
 
+.padding {
+    padding-right: 10px;
+}
+
+.savings {
+    color: #8FB73E;
+}
+
+thead,
+tbody {
+    display: block;
+}
+
+tbody {
+    height: 500px;
+    /* Just for the demo          */
+    overflow-y: auto;
+    /* Trigger vertical scroll    */
+    overflow-x: hidden;
+    /* Hide the horizontal scroll */
+}
+
 
 /* Rounded sliders
 

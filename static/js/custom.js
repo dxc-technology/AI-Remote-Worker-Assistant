@@ -184,7 +184,6 @@ function computeTotal() {
     var income = document.getElementById("inputIncome").value;
     // changeColor();
     if (totalAmount > income) {
-        print('hi');
         $('#lbTotalAmount').css('color', 'red');
     }
 }

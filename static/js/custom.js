@@ -181,11 +181,24 @@ function computeTotal() {
     }
     lbTotalAmount.innerText = totalAmount;
 
-    var income = document.getElementById("inputIncome").value;
-    // changeColor();
+    // Change Color
+    var income = parseInt(document.getElementById("inputIncome").value);
+    var allow = income - (income * .10);
+
+
     if (totalAmount > income) {
         $('#lbTotalAmount').css('color', 'red');
+    } else if (totalAmount == income || totalAmount > allow) {
+        $('#lbTotalAmount').css('color', 'yellow');
+    } else {
+        $('#lbTotalAmount').css('color', 'green');
     }
+
+    var totalHigh
+    var totalMediumLow = totalAmount - (totalAmount * .20)
+    var totalMeidumHigh = totalAmount - (totalAmount * .20)
+    var totalLow
+
 }
 
 

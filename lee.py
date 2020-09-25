@@ -57,7 +57,7 @@ def optimize():
     mmonthly_health = 200.0
     mmonthly_maintenance = 110.0
     # Actual expense for each category
-    ##_input = request.args['input']
+    _input = request.args['input']
     monthly_home_utility_spend = 460.0
     monthly_transportation_spend = 110.0
     monthly_shopping_groceries_spend = 100.0
@@ -130,7 +130,7 @@ def optimize():
     minimized_travel = monthly_travel_spend * ( 1 - pulp.value(travel_perct_adjustment))
     minimized_health = monthly_health_spend * ( 1 - pulp.value(health_perct_adjustment))
     minimized_maintenance = monthly_maintenance_spend  * ( 1 - pulp.value(maintenance_perct_adjustment))
-    return jsonify({
+    r = {
         "minimized_home_utility": minimized_home_utility,
         "minimized_transportation": minimized_transportation,
         "minimized_shopping_groceries": minimized_shopping_groceries,
@@ -141,9 +141,12 @@ def optimize():
         "minimized_travel": minimized_travel,
         "minimized_health": minimized_health,
         "minimized_maintenance": minimized_maintenance,
-    })
+    }
     #return _input
-
+    #json = dumps(r)
+    #return json
+    return jsonify(r)
+   
 if __name__ == '__main__':
     port = int(os.getenv('PORT'))
     print("Starting app on port %d" % port)

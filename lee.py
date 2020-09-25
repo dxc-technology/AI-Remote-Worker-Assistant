@@ -148,17 +148,17 @@ def optimize():
     return jsonify(r)
    
 if __name__ == '__main__':
-    # port = int(os.getenv('PORT'))
-    # print("Starting app on port %d" % port)
-    # app.run(debug=False, port=port, host='0.0.0.0')
+    port = int(os.getenv('PORT'))
+    print("Starting app on port %d" % port)
+    app.run(debug=False, port=port, host='0.0.0.0')
     
-    import os
-    HOST = os.environ.get('SERVER_HOST', 'localhost')
-    try:
-        PORT = int(os.environ.get('SERVER_PORT', '1000'))
-    except ValueError:
-        PORT = 1000
-    app.run(HOST, PORT)
+    # import os
+    # HOST = os.environ.get('SERVER_HOST', 'localhost')
+    # try:
+    #     PORT = int(os.environ.get('SERVER_PORT', '1000'))
+    # except ValueError:
+    #     PORT = 1000
+    # app.run(HOST, PORT)
     
 '''if __name__ == '__main__':
     app.run(debug=True, port=1000)'''

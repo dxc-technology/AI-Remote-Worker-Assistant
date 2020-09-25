@@ -56,6 +56,7 @@ def optimize():
     mmonthly_health = 200.0
     mmonthly_maintenance = 110.0
     # Actual expense for each category
+    _input = request.args['input']
     monthly_home_utility_spend = 460.0
     monthly_transportation_spend = 110.0
     monthly_shopping_groceries_spend = 100.0
@@ -66,10 +67,81 @@ def optimize():
     monthly_travel_spend = 210.0
     monthly_health_spend = 70.0
     monthly_maintenance_spend = 100.0
-    # will continue
-    _input = request.args['input']
-    
-    return _input
+    # Define the decision variables
+    home_utility_perct_adjustment = LpVariable("Home_Utilities",0,0.2)
+    transportation_perct_adjustment = LpVariable("Transportation",0,0.20)
+    shopping_groceries_perct_adjustment = LpVariable("Shopping_Groceries",0,0.20)
+    personal_family_care_perct_adjustment = LpVariable("Personal_Family_Care",0,0.20)
+    restaurant_dinning_perct_adjustment = LpVariable("Restaurant_Dining",0,0.20)
+    insurance_perct_adjustment = LpVariable("Insurance",0,0.20)
+    entertainment_perct_adjustment = LpVariable("Entertainment",0,0.20)
+    travel_perct_adjustment = LpVariable("Travel",0,0.20)
+    health_perct_adjustment = LpVariable("Health",0,0.20)
+    maintenance_perct_adjustment = LpVariable("Maintenance",0,0.20)
+    savings = LpVariable("Savings")
+    budget_2 += savings
+    # compute the minimum percent on the actuals 
+    mthly_home_utility_der = monthly_home_utility_spend * (1 - home_utility_perct_adjustment)
+    mthly_transportation_der = monthly_transportation_spend * (1 - transportation_perct_adjustment)
+    mthly_shopping_groceries_der = monthly_shopping_groceries_spend * (1 - shopping_groceries_perct_adjustment)
+    mthly_personal_family_care_der = monthly_personal_family_care_spend * (1 - personal_family_care_perct_adjustment)
+    mthly_restaurant_dinning_der = monthly_restaurant_dinning_spend * (1 - restaurant_dinning_perct_adjustment)
+    mthly_insurance_der = monthly_insurance_spend * (1 - insurance_perct_adjustment)
+    mthly_entertainment_der = monthly_entertainment_spend * (1 - entertainment_perct_adjustment)
+    mthly_travel_der = monthly_travel_spend * (1 - travel_perct_adjustment)
+    mthly_health_der = monthly_health_spend * (1 - health_perct_adjustment)
+    mthly_maintenance_der = monthly_maintenance_spend * (1 - maintenance_perct_adjustment)
+    # Adjustment for each category can go beyond the minimum of each category
+    budget_2 += mthly_home_utility_der >= monthly_min_home_utility
+    budget_2 += mthly_transportation_der >= monthly_min_transportation
+    budget_2 += mthly_shopping_groceries_der  >= monthly_min_shopping_groceries
+    budget_2 += mthly_personal_family_care_der >= monthly_min_personal_family_care
+    budget_2 += mthly_restaurant_dinning_der >= monthly_min_restaurant_dinning
+    budget_2 += mthly_insurance_der >= monthly_min_insurance
+    budget_2 += mthly_entertainment_der >= monthly_min_entertainment
+    budget_2 += mthly_travel_der  >= monthly_min_travel
+    budget_2 += mthly_health_der >= monthly_min_health
+    budget_2 += mthly_maintenance_der >=monthly_min_maintenance
+    # Adjustment for each category should not go beyond the maximum of each category
+    budget_2 += mthly_home_utility_der <= mmonthly_home_utility
+    budget_2 += mthly_transportation_der <= mmonthly_transportation
+    budget_2 += mthly_shopping_groceries_der  <= mmonthly_shopping_groceries
+    budget_2 += mthly_personal_family_care_der <= mmonthly_personal_family_care
+    budget_2 += mthly_restaurant_dinning_der <= mmonthly_restaurant_dinning
+    budget_2 += mthly_insurance_der <= mmonthly_insurance
+    budget_2 += mthly_entertainment_der <= mmonthly_entertainment
+    budget_2 += mthly_travel_der  <= mmonthly_travel
+    budget_2 += mthly_health_der <= mmonthly_health
+    budget_2 += mthly_maintenance_der <=mmonthly_maintenance
+    # sum of monthly expenses times the adjustment should be within the income
+    budget_2 += mthly_home_utility_der + mthly_transportation_der + mthly_shopping_groceries_der + mthly_personal_family_care_der+ mthly_restaurant_dinning_der + mthly_insurance_der + mthly_entertainment_der + mthly_travel_der +mthly_health_der + mthly_maintenance_der + savings <= income
+    # solve the problem
+    status = budget_2.solve(pulp.PULP_CBC_CMD(keepFiles=True))
+    #LpStatus[status]
+    # Display values of the variables 
+    minimized_home_utility = monthly_home_utility_spend * (1 - pulp.value(home_utility_perct_adjustment))
+    minimized_transportation = monthly_transportation_spend * (1 - pulp.value(transportation_perct_adjustment))
+    minimized_shopping_groceries = monthly_shopping_groceries_spend * ( 1 - pulp.value(shopping_groceries_perct_adjustment))
+    minimized_personal_family_care = monthly_personal_family_care_spend * ( 1 - pulp.value(personal_family_care_perct_adjustment))
+    minimized_restaurant_dinning = monthly_restaurant_dinning_spend * (1 - pulp.value(restaurant_dinning_perct_adjustment))
+    minimized_insurance = monthly_insurance_spend * (1 - pulp.value(insurance_perct_adjustment))
+    minimized_entertainment = monthly_entertainment_spend * ( 1 - pulp.value(entertainment_perct_adjustment))
+    minimized_travel = monthly_travel_spend * ( 1 - pulp.value(travel_perct_adjustment))
+    minimized_health = monthly_health_spend * ( 1 - pulp.value(health_perct_adjustment))
+    minimized_maintenance = monthly_maintenance_spend  * ( 1 - pulp.value(maintenance_perct_adjustment))
+    return jsonify({
+        "minimized_home_utility": minimized_home_utility,
+        "minimized_transportation": minimized_transportation,
+        "minimized_shopping_groceries": minimized_shopping_groceries,
+        "minimized_personal_family_care": minimized_personal_family_care,
+        "minimized_restaurant_dinning": minimized_restaurant_dinning,
+        "minimized_insurance": minimized_insurance,
+        "minimized_entertainment": minimized_entertainment,
+        "minimized_travel": minimized_travel,
+        "minimized_health": minimized_health,
+        "minimized_maintenance": minimized_maintenance,
+    })
+    #return _input
 
 if __name__ == '__main__':
     port = int(os.getenv('PORT'))

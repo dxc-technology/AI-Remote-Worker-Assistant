@@ -28,7 +28,7 @@ def home():
     #return render_template('index.html', svc='http://127.0.0.1:1000/')
     return render_template('index.html')
 
-@app.route('/optimize')
+@app.route('/optimize',methods=['GET', 'POST'])
 def optimize():
     # Step 2 : Define the problem : Maximize the savings
     budget_2 = LpProblem("Monthly_Savings",LpMaximize)
@@ -57,7 +57,7 @@ def optimize():
     mmonthly_health = 200.0
     mmonthly_maintenance = 110.0
     # Actual expense for each category
-    _input = request.args['input']
+    #_input = request.args['input']
     monthly_home_utility_spend = 460.0
     monthly_transportation_spend = 110.0
     monthly_shopping_groceries_spend = 100.0

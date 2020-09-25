@@ -30,11 +30,22 @@ function loadChart() {
             },
             plugins: {
                 labels: [{
-                        render: 'label',
-                        position: 'outside'
+                        render: 'image',
+                        images: [
+                            { src: '/static/icons/Home.png', width: 32, height: 22 },
+                            { src: '/static/icons/Home.png', width: 32, height: 22 },
+                            { src: '/static/icons/Home.png', width: 32, height: 22 }
+                        ]
                     },
                     {
-                        render: 'percentage'
+                        render: 'value',
+                        position: 'border',
+                        fontColor: 'white',
+                        textMargin: 4,
+                        outsidePadding: 4,
+                        fontSize: 12,
+                        textShadow: true,
+                        fontStyle: 'bold'
                     }
                 ]
             }

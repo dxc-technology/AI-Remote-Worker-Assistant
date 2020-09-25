@@ -8,6 +8,10 @@ body {
     -o-background-size: cover;
 }
 
+.category-icon {
+    margin: 0;
+}
+
 .calculator-container {
     background-color: #6F2C91;
     color: white
@@ -41,7 +45,7 @@ body {
     text-align: center;
 }
 
-btn.btn-circle.btn-xl {
+.btn.btn-circle.btn-xl {
     width: 70px;
     height: 70px;
     padding: 10px 16px;
@@ -60,10 +64,18 @@ btn.btn-circle.btn-xl {
 }
 
 .table td {
-    padding-top: .10rem;
-    padding-bottom: .10rem;
+    padding-top: .0rem;
+    padding-bottom: .0rem;
     vertical-align: middle;
     border-top: 1px solid #dee2e6;
+}
+
+.table thead {
+    padding-top: 0;
+}
+
+.custom-control-label {
+    padding-left: 0.9em;
 }
 
 
@@ -151,9 +163,11 @@ tbody {
     display: block;
 }
 
+
+/* SCROLL */
+
 tbody {
-    height: 500px;
-    /* Just for the demo          */
+    height: 400px;
     overflow-y: auto;
     /* Trigger vertical scroll    */
     overflow-x: hidden;

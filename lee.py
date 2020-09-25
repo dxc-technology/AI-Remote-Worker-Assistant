@@ -25,10 +25,10 @@ def home():
     #return render_template('index.html', svc='http://127.0.0.1:1000/')
     return render_template('index.html')
 
-
 @app.route('/optimize')
 def optimize():
     _input = request.args['input']
+    
     return _input
 
 if __name__ == '__main__':

@@ -61,6 +61,8 @@ function check() {
     document.getElementById("cb_health").checked = true;
     document.getElementById("cb_maintenance").checked = true;
 
+    document.getElementById("cb_savings").checked = true;
+
     document.getElementById("budgetCalculator").style.display == "block"
 
 
@@ -94,6 +96,8 @@ function uncheck() {
     document.getElementById("cb_travel").checked = false;
     document.getElementById("cb_health").checked = false;
     document.getElementById("cb_maintenance").checked = false;
+
+    document.getElementById("cb_savings").checked = false;
 }
 
 function saveCategory() {
@@ -162,13 +166,12 @@ function displaySliderValue() {
 function computeTotal() {
     var sliderAmount = document.getElementsByName("sliderAmount");
     var lbTotalAmount = document.getElementById("lbTotalAmount");
-    var budget = document.getElementsByName("budgetCategory");
+    var vb = document.getElementsByName("category");
     var totalAmount = 0;
 
     for (var j = 0; j < sliderAmount.length; j++) {
         val = sliderAmount[j].value;
-        if (budget[j].style.display = "table-row") {
-
+        if (vb[j].checked == true) {
             totalAmount = parseInt(totalAmount) + parseInt(val);
         }
     }

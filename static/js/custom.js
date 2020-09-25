@@ -1,3 +1,30 @@
+// $("#btnBudgetCalculator").click(function() {
+
+//     var container = document.getElementById("budgetCalculator");
+//     if (container.style.display == "none") {
+//         container.style.display = "block";
+//         $("#budgetCalculator").slideDown("slow", function() {
+//             // Animation complete.
+//         });
+//     } else {
+//         container.style.display = "none";
+//     }
+
+// });
+
+
+$("#btnBudgetCalculator").click(function() {
+    if ($("#budgetCalculator").first().is(":hidden")) {
+        $("#budgetCalculator").slideDown("slow");
+    } else {
+        $("#budgetCalculator").hide();
+    }
+});
+
+
+
+
+
 $("#inputPls").on("click", function() {
     modify();
 });

@@ -5553,7 +5553,7 @@ div#driver-popover-item .driver-popover-footer .driver-close-btn:hover {
 
 table img {
     max-width: 30px;
-    border-radius: 50%;
+    /* border-radius: 50%; */
     margin-right: 5px;
 }
 

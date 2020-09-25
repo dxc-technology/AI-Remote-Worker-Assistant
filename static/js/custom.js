@@ -214,11 +214,14 @@ function computeTotal() {
 
 
     if (totalAmount > income) {
-        $('#lbTotalAmount').css('color', 'red');
+        $('#lbTotalAmount').css('color', '#A61D24');
+        $('#lbTotal').css('color', '#A61D24');
     } else if (totalAmount == income || totalAmount > allow) {
-        $('#lbTotalAmount').css('color', 'yellow');
+        $('#lbTotalAmount').css('color', '#D89614');
+        $('#lbTotal').css('color', '#D89614');
     } else {
-        $('#lbTotalAmount').css('color', 'green');
+        $('#lbTotalAmount').css('color', '#49AA19');
+        $('#lbTotal').css('color', '#49AA19');
     }
 
     var totalHigh

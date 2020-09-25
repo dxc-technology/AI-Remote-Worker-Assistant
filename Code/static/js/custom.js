@@ -5,6 +5,7 @@ $("#inputPls").on("click", function() {
 function runOptimizer() {
     displaySliderValue();
     loadChart();
+    changeColor();
 }
 
 function show_hide() {
@@ -165,6 +166,7 @@ function displaySliderValue() {
     }
 
     computeTotal();
+    $('#lbTotalAmount').css('color', 'red');
 }
 
 function computeTotal() {
@@ -259,6 +261,10 @@ function setMaxSliderValue() {
 // });
 
 
-$(document).ready(function() {
-    $('.lbl').css('color', 'red');
-});
+function changeColor() {
+    //var total = parseInt(document.getElementById("lbTotalAmount").innerText());
+
+    // if (total > 1) {
+    $('#lbTotalAmount').css('color', 'red');
+    // }
+}

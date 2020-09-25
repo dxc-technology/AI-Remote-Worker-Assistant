@@ -1,7 +1,10 @@
 body {
     /* background-image: url('static/images/lee-gradient-background.png'); */
     /* background-image: url("/static/css/lee-gradient-background.png"); */
-    /* no-repeat center center fixed */
+    background: no-repeat center center fixed;
+    /* background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover; */
     -webkit-background-size: cover;
     -moz-background-size: cover;
     background-size: cover;

@@ -3,8 +3,11 @@
 import os
 import json
 import ast
+import pulp
+from pulp import LpVariable,LpProblem,LpStatus,LpMaximize,LpMinimize
+    
 
-from flask import Flask, render_template, request, redirect, url_for
+from flask import Flask, render_template, request, redirect, url_for,jsonify
 app = Flask(__name__)
 
 app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 0
@@ -27,8 +30,6 @@ def home():
 
 @app.route('/optimize')
 def optimize():
-    import pulp
-    from pulp import LpVariable,LpProblem,LpStatus,LpMaximize,LpMinimize
     # Step 2 : Define the problem : Maximize the savings
     budget_2 = LpProblem("Monthly_Savings",LpMaximize)
     # Given monthly income 
@@ -56,7 +57,7 @@ def optimize():
     mmonthly_health = 200.0
     mmonthly_maintenance = 110.0
     # Actual expense for each category
-    _input = request.args['input']
+    ##_input = request.args['input']
     monthly_home_utility_spend = 460.0
     monthly_transportation_spend = 110.0
     monthly_shopping_groceries_spend = 100.0

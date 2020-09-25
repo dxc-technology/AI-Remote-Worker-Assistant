@@ -130,19 +130,22 @@ def optimize():
     minimized_travel = monthly_travel_spend * ( 1 - pulp.value(travel_perct_adjustment))
     minimized_health = monthly_health_spend * ( 1 - pulp.value(health_perct_adjustment))
     minimized_maintenance = monthly_maintenance_spend  * ( 1 - pulp.value(maintenance_perct_adjustment))
-#     return make_response(jsonify({
-#         "minimized_home_utility": minimized_home_utility,
-#         "minimized_transportation": minimized_transportation,
-#         "minimized_shopping_groceries": minimized_shopping_groceries,
-#         "minimized_personal_family_care": minimized_personal_family_care,
-#         "minimized_restaurant_dinning": minimized_restaurant_dinning,
-#         "minimized_insurance": minimized_insurance,
-#         "minimized_entertainment": minimized_entertainment,
-#         "minimized_travel": minimized_travel,
-#         "minimized_health": minimized_health,
-#         "minimized_maintenance": minimized_maintenance,
-#     }),200)
-    return _input
+    r = {
+        "minimized_home_utility": minimized_home_utility,
+        "minimized_transportation": minimized_transportation,
+        "minimized_shopping_groceries": minimized_shopping_groceries,
+        "minimized_personal_family_care": minimized_personal_family_care,
+        "minimized_restaurant_dinning": minimized_restaurant_dinning,
+        "minimized_insurance": minimized_insurance,
+        "minimized_entertainment": minimized_entertainment,
+        "minimized_travel": minimized_travel,
+        "minimized_health": minimized_health,
+        "minimized_maintenance": minimized_maintenance,
+    }
+    #return _input
+    json = dumps(r)
+    return json
+   
 if __name__ == '__main__':
     port = int(os.getenv('PORT'))
     print("Starting app on port %d" % port)

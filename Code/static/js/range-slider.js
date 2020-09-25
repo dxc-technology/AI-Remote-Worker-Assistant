@@ -5,11 +5,12 @@
     $("#demo_0").ionRangeSlider({
 
         min: 0,
-        max: 1000
+        max: 100
     });
 
     $(".js-range-slider").ionRangeSlider({
-        min: 0,
+        skin: 'round',
+        // min: 0,
         // max: 800
     });
 

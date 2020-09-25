@@ -196,25 +196,28 @@ function computeTotal() {
 
 
 
-// function setMaxSliderValue() {
-//     var incomeAmount = $("#inputIncome").val();
-//     alert(incomeAmount);
+function setMaxSliderValue() {
+    var incomeAmount = $("#inputIncome").val();
+    alert(incomeAmount);
 
-//     // $(".span.irs-max").css({ "max": incomeAmount });
+    // $(".span.irs-max").css({ "max": incomeAmount });
 
-//     // document.getElementById("sliderHome").attr = 900;
-//     $("#sliderHome").attr("data-max", 900);
+    // document.getElementById("sliderHome").attr = 900;
+    // $("#sliderHome").attr("data-max", 900);
 
-//     // $("#sliderHome").val("900")
-//     // $(".js-range-slider").ionRangeSlider({
-//     //     min: 100,
-//     //     max: 800
-//     // });
+    $(".span.irs-max").val("500");
 
-//     // document.getElementsByClassName(".js-range-slider").property.max = 100;
+    var homeSlider = document.getElementById("sliderHome");
+    homeSlider.createAttribute("data-min", "800");
 
+    // $("#sliderHome").val("900")
+    // $(".js-range-slider").ionRangeSlider({
+    //     min: 100,
+    //     max: 800
+    // });
 
-// }
+    // document.getElementsByClassName(".js-range-slider").property.max = 100;
+}
 
 // $("#inputPls").click(function() {
 //     $("#sliderHome").attr("data-max", "500");

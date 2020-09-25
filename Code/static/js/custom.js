@@ -146,9 +146,13 @@ function displaySliderValue() {
     var sliderAmount = document.getElementsByName("sliderAmount");
     var labelAmount = document.getElementsByName("lbAmount");
 
+    var vb = document.getElementsByName("category");
+
     for (var i = 0; i < sliderAmount.length; i++) {
-        val = sliderAmount[i].value;
-        labelAmount[i].innerText = val;
+        if (vb[i].checked == true) {
+            val = sliderAmount[i].value;
+            labelAmount[i].innerText = val;
+        }
 
     }
 
@@ -158,14 +162,19 @@ function displaySliderValue() {
 function computeTotal() {
     var sliderAmount = document.getElementsByName("sliderAmount");
     var lbTotalAmount = document.getElementById("lbTotalAmount");
+    var budget = document.getElementsByName("budgetCategory");
     var totalAmount = 0;
 
     for (var j = 0; j < sliderAmount.length; j++) {
         val = sliderAmount[j].value;
-        totalAmount = parseInt(totalAmount) + parseInt(val);
+        if (budget[j].style.display = "table-row") {
+
+            totalAmount = parseInt(totalAmount) + parseInt(val);
+        }
     }
     lbTotalAmount.innerText = totalAmount;
 }
+
 
 // ar nums = ['100', '300', '400', '60', '40'];
 // var num = 0;

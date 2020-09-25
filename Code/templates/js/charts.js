@@ -6,10 +6,11 @@ function loadChart() {
     new Chart(document.getElementById("chartBudget"), {
         type: 'doughnut',
         data: {
-            labels: ["Home & Utilities", "Asia", "Europe", "Latin America", "North America", "Home & Utilities", "Asia", "Europe", "Latin America", "North America"],
+            labels: ["one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten"],
             datasets: [{
                 // label: "Population (millions)",
-                backgroundColor: ["#357ffa", "#f7b11b", "#ff6c60", "#8663e1", "#08bf6f", "#357ffa", "#f7b11b", "#ff6c60", "#8663e1", "#08bf6f"],
+                // backgroundColor: ["#357ffa", "#f7b11b", "#ff6c60", "#8663e1", "#08bf6f", "#357ffa", "#f7b11b", "#ff6c60", "#8663e1", "#08bf6f"],
+                backgroundColor: ["#17406D", "#074986", "#095397", "#0E6BC0", "#487ECA", "#7A99D2", "#98ADDA", "#B2C0E1", "#C7D1E9", "#DCF7BA"],
                 data: [2478, 5267, 734, 784, 433, 2478, 5267, 734, 784, 433]
             }]
         },

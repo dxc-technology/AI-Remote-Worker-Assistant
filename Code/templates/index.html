@@ -13,11 +13,19 @@
         function modify() {
 
             alert("his");
-            // var homeSlider = document.getElementById("sliderHome");
-            // homeSlider.setAttribute("data-min", '1');
 
-            var myInput = document.getElementById('sliderHome');
-            myInput['data-min'] = '1';
+            var homeSlider = document.getElementById("sliderHome");
+            homeSlider.setAttribute("data-min", '1');
+
+            // let my_range = $(".js-range-slider").data("ionRangeSlider");
+
+            // my_range.update({
+
+            // })
+
+
+            // var myInput = document.getElementById('sliderHome');
+            // myInput['data-min'] = '1';
         }
     </script>
     <!-- <script type="text/javascript">
@@ -104,15 +112,13 @@
                                         <div class="form-group row">
                                             <label for="colFormLabel" class="col-sm-2 col-form-label h2 font-weight-bold">Income</label>
                                             <div class="col-sm-10">
-                                                <input id="inputIncome" type="number" min="0" class="form-control" id="colFormLabel">
+                                                <input id="inputIncome" type="number" min="0" class="form-control" id="colFormLabel" onchange="modify()">
                                             </div>
-                                            <button type="submit" id="inputPls" onclick="modify()" class="btn btn-outline-primary">
+                                            <button type="submit" id="inputPls" class="btn btn-outline-primary">
                                                 <i class="fas fa-edit    "></i>
                                                 Compute
                                             </button>
                                         </div>
-
-
 
 
                                         <!-- Table  -->
@@ -147,7 +153,7 @@
                                                     </td>
                                                     <td style="width: 45%">
                                                         <div class="ms-range-slider my-4">
-                                                            <input id="sliderHome" name="sliderAmount" type="text" data-min="0" class="js-range-slider" value="" />
+                                                            <input id="sliderHome" name="sliderAmount" type="text" class="js-range-slider" value="" />
                                                         </div>
                                                     </td>
                                                     <td style="width: 20%">
@@ -380,7 +386,7 @@
                                                 <tr name="budgetTotal">
 
                                                     <td colspan="4" class="text-right"><label class="h5">Total: $</label>
-                                                        <label class="h5" id="lbTotalAmount"></label>
+                                                        <label class="h5" id="lbTotalAmount" onchange="changeColor()"></label>
                                                     </td>
                                                 </tr>
                                             </tbody>

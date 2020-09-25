@@ -1,3 +1,7 @@
+$("#inputPls").on("click", function() {
+    modify();
+});
+
 function runOptimizer() {
     displaySliderValue();
     loadChart();
@@ -217,10 +221,10 @@ function setMaxSliderValue() {
     // document.getElementById("sliderHome").attr = 900;
     // $("#sliderHome").attr("data-max", 900);
 
-    $(".span.irs-max").val("500");
+    // $(".span.irs-max").val("500");
 
-    var homeSlider = document.getElementById("sliderHome");
-    homeSlider.createAttribute("data-min", "800");
+    // var homeSlider = document.getElementById("sliderHome");
+    // homeSlider.createAttribute("data-min", "800");
 
     // $("#sliderHome").val("900")
     // $(".js-range-slider").ionRangeSlider({
@@ -253,3 +257,8 @@ function setMaxSliderValue() {
 //     });
 
 // });
+
+
+$(document).ready(function() {
+    $('.lbl').css('color', 'red');
+});

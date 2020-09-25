@@ -11,7 +11,7 @@ app = Flask(__name__)
 @app.route('/')
 def home():
     #return render_template('index.html', svc='http://127.0.0.1:1000/')
-    return render_template('index.html'))
+    return render_template('index.html')
 
 
 @app.route('/optimize')

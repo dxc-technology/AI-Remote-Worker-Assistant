@@ -34,20 +34,20 @@
 
     <!-- Iconic Fonts -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link href="vendor/font-awesome/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename = 'vendor/font-awesome/css/all.min.css') }}">
 
     <!-- Bootstrap core CSS -->
-    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename = 'vendor/bootstrap/css/bootstrap.min.css') }}">
 
     <!-- jQuery UI -->
-    <link href="css/jquery-ui.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename = 'css/jquery-ui.min.css') }}">
 
     <!-- Custom styles for this template -->
-    <link href="css/custom.css" rel="stylesheet">
-    <link href="css/style.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename = 'css/custom.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename = 'css/style.css') }}">
 
     <!-- Range Slider-->
-    <link href="css/ion.rangeSlider.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename = 'css/ion.rangeSlider.min.css') }}">
 
 
 </head>
@@ -64,11 +64,11 @@
                 <div class="col-lg-3">
                     <h1>LEE CHAT WINDOW GOES HERE</h1>
                     <link href="https://axlewebtech.com/clients/chatbots/axlewebtech/scripts/chatbot.css" rel="stylesheet" type="text/css">
-                      <script src="https://axlewebtech.com/clients/chatbots/axlewebtech/scripts/webchat.js">
+                    <script src="https://axlewebtech.com/clients/chatbots/axlewebtech/scripts/webchat.js">
                     </script>
-                  <script>
-                    bot_Init('',true,400,500,'https://axlewebtech.com/clients/chatbots/axlewebtech/fullpage/images/customer-service.ico', 'https://axleweb.tech/chatbotx?project=remoteworkersbot-pygtgi');
-                  </script>
+                    <script>
+                        bot_Init('', true, 400, 500, 'https://axlewebtech.com/clients/chatbots/axlewebtech/fullpage/images/customer-service.ico', 'https://axleweb.tech/chatbotx?project=remoteworkersbot-pygtgi');
+                    </script>
                 </div>
                 <div class="col-lg-7">
                     <!-- <div id="budget_calculator" class="card box-shadow col-lg-12"> -->
@@ -535,25 +535,28 @@
 
     <!-- SCRIPTS -->
     <!-- Bootstrap core JavaScript -->
-    <script src="vendor/jquery/jquery.min.js "></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js "></script>
-    <script src="js/bootstrap.min.js "></script>
+    <script src="{{url_for('static', filename='vendor/jquery/jquery.min.js')}}"></script>
+    <script src="{{url_for('static', filename='vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+    <script src="{{url_for('static', filename='js/bootstrap.min.js')}}"></script>
 
     <!-- Custom JavaScript -->
-    <script src="js/custom.js"></script>
+    <script src="{{url_for('static', filename='js/custom.js')}}"></script>
 
     <!-- Slider Script -->
-    <script src="js/ion.rangeSlider.min.js "></script>
-    <script src="js/range-slider.js "></script>
+    <script src="{{url_for('static', filename='js/ion.rangeSlider.min.js')}}"></script>
+    <script src="{{url_for('static', filename='js/range-slider.js')}}"></script>
 
     <!-- Chart scripts -->
-    <script src="js/Chart.bundle.min.js "></script>
-    <script src="js/charts.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/emn178/chartjs-plugin-labels/src/chartjs-plugin-labels.js"></script>
 
+    <script src="{{url_for('static', filename='js/Chart.bundle.min.js')}}"></script>
+    <script src="{{url_for('static', filename='js/charts.js')}}"></script>
+
     <!-- JQuery UI Scripts-->
-    <script src="js/jquery-ui.min.js "></script>
-    <script src="js/jquery-3.3.1.min.js "></script>
+
+    <script src="{{url_for('static', filename='js/jquery-ui.min.js')}}"></script>
+    <script src="{{url_for('static', filename='js/jquery-3.3.1.min.js')}}"></script>
+
 
 </body>
 

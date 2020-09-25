@@ -5,7 +5,6 @@ $("#inputPls").on("click", function() {
 function runOptimizer() {
     displaySliderValue();
     loadChart();
-    changeColor();
 }
 
 function show_hide() {
@@ -166,7 +165,6 @@ function displaySliderValue() {
     }
 
     computeTotal();
-    $('#lbTotalAmount').css('color', 'red');
 }
 
 function computeTotal() {
@@ -182,6 +180,13 @@ function computeTotal() {
         }
     }
     lbTotalAmount.innerText = totalAmount;
+
+    var income = document.getElementById("inputIncome").value;
+    // changeColor();
+    if (totalAmount > income) {
+        print('hi');
+        $('#lbTotalAmount').css('color', 'red');
+    }
 }
 
 
@@ -262,9 +267,25 @@ function setMaxSliderValue() {
 
 
 function changeColor() {
-    //var total = parseInt(document.getElementById("lbTotalAmount").innerText());
+    // var total = parseInt(document.getElementById("lbTotalAmount").value);
+    var income = document.getElementById("inputIncome").value;
 
     // if (total > 1) {
-    $('#lbTotalAmount').css('color', 'red');
+    //     $('#lbTotalAmount').css('color', 'red');
     // }
+
+    var sliderAmount = document.getElementsByName("sliderAmount");
+    var lbTotalAmount = document.getElementById("lbTotalAmount");
+    var vb = document.getElementsByName("category");
+    var totalAmount = 0;
+
+    for (var j = 0; j < sliderAmount.length; j++) {
+        val = sliderAmount[j].value;
+        if (vb[j].checked == true) {
+            totalAmount = parseInt(totalAmount) + parseInt(val);
+        }
+    }
+    if (totalAmount < 50) {
+        $('#lbTotalAmount').css('color', 'red');
+    }
 }

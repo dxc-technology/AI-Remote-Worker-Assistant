@@ -23,7 +23,7 @@
             //update the optimizer with new input
             url = "{{svc}}optimize?input=" + input
             res = httpGet(url)
-            chart.innerHTML = res;
+            chart.innerHTML = res;f
         }
 
         function runOptimizer() {
@@ -379,7 +379,13 @@
                                         <div class="container">
                                             <canvas id="chartBudget" width="300" height="300"></canvas>
                                         </div>
+
+                                        <!-- Others  -->
+                                        <div class="container ms-panel-body center">
+                                            <img src="static/css/ulster.png" width="50%" class="btn" />
+                                        </div>
                                     </div>
+
                                 </div>
                             </form>
                         </div>
@@ -529,9 +535,6 @@
 
                     </nav>
     </section>
-
-    <script>
-    </script>
 
     <!-- SCRIPTS -->
     <!-- Bootstrap core JavaScript -->

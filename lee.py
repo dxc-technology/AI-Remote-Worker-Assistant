@@ -4,6 +4,7 @@ import os
 import json
 import ast
 import pulp
+from flask_cors import CORS
 from pulp import LpVariable,LpProblem,LpStatus,LpMaximize,LpMinimize
     
 

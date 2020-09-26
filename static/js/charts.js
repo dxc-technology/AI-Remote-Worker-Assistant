@@ -42,11 +42,29 @@
 
 function loadChart() {
     const myApi = "https://cors-anywhere.herokuapp.com/https://hello-lee.herokuapp.com/optimize"
-    var details = "";
+    var minimized_entertainment = "";
+    var minimized_health = "";
+    var minimized_home_utility = "";
+    var minimized_insurance = "";
+    var minimized_maintenance = "";
+    var minimized_personal_family_care = "";
+    var minimized_restaurant_dinning = "";
+    var minimized_shopping_groceries = "";
+    var minimized_transportation = "";
+    var minimized_travel = "";
     async function getAPI(url) {
         const res = await fetch(url);
         const mydata = await res.json();
-        details = mydata.minimized_entertainment;
+        minimized_entertainment = mydata.minimized_entertainment;
+        minimized_health = mydata.minimized_health;
+        minimized_home_utility = mydata.minimized_home_utility;
+        minimized_insurance = mydata.minimized_insurance;
+        minimized_maintenance = mydata.minimized_maintenance;
+        minimized_personal_family_care = mydata.minimized_personal_family_care;
+        minimized_restaurant_dinning = mydata.minimized_restaurant_dinning;
+        minimized_shopping_groceries = mydata.minimized_shopping_groceries;
+        minimized_transportation = mydata.minimized_transportation;
+        minimized_travelminimized_travel = mydata.minimized_travelminimized_travel;
         console.log(details)
         console.log(mydata);
 
@@ -60,7 +78,28 @@ function loadChart() {
                     // backgroundColor: ["#357ffa", "#f7b11b", "#ff6c60", "#8663e1", "#08bf6f", "#357ffa", "#f7b11b", "#ff6c60", "#8663e1", "#08bf6f"],
                     // backgroundColor: ["#17406D", "#074986", "#095397", "#0E6BC0", "#487ECA", "#7A99D2", "#98ADDA", "#B2C0E1", "#C7D1E9", "#DCF7BA"],
                     backgroundColor: ["#6F2C91", "#40BADA", "#DF6D27", "#DDB726", "#0067B3", "#8FB73E", "#6F2C91", "#40BADA", "#DF6D27", "#DDB726", "#0067B3", ],
-                    data: [details, details, details, details, details, details, details, details, details, 433]
+                    data: [
+                        // minimized_entertainment,
+                        // minimized_health,
+                        // minimized_home_utility,
+                        // minimized_insurance,
+                        // minimized_maintenance,
+                        // minimized_personal_family_care,
+                        // minimized_restaurant_dinning,
+                        // minimized_shopping_groceries,
+                        // minimized_transportation,
+                        // minimized_travelminimized_travel
+                        1,
+                        2,
+                        3,
+                        4,
+                        5,
+                        6,
+                        7,
+                        8,
+                        9,
+                        9
+                    ]
                 }]
             },
             options: {
@@ -97,10 +136,9 @@ function loadChart() {
                 }
             }
         });
-
     }
-    console.log(details)
-    getAPI(myApi);
+    // console.log(details)
+    // getAPI(myApi);
 
 
 }

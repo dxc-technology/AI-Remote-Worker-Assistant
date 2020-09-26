@@ -6,7 +6,7 @@ import ast
 import pulp
 from flask_cors import CORS
 from pulp import LpVariable,LpProblem,LpStatus,LpMaximize,LpMinimize
-    
+
 
 from flask import Flask, render_template, request, redirect, url_for,jsonify
 app = Flask(__name__)
@@ -37,7 +37,7 @@ def home():
 def optimize():
     # Step 2 : Define the problem : Maximize the savings
     budget_2 = LpProblem("Monthly_Savings",LpMaximize)
-    # Given monthly income 
+    # Given monthly income
     income = 8000
     # Minimum limit for each category
     monthly_min_home_utility = 10.0
@@ -62,7 +62,7 @@ def optimize():
     mmonthly_travel = 250.0
     mmonthly_health = 200.0
     mmonthly_maintenance = 110.0
-    
+
     # Actual expense for each category
     #_input = request.args['input']
     monthly_home_utility_spend = 460.0
@@ -75,7 +75,7 @@ def optimize():
     monthly_travel_spend = 210.0
     monthly_health_spend = 70.0
     monthly_maintenance_spend = 100.0
-    
+
 #     monthly_home_utility_spend = float(request.args['monthly_home_utility_spend'])
 #     monthly_transportation_spend = float(request.args['monthly_transportation_spend'])
 #     monthly_shopping_groceries_spend =float(request.args['monthly_shopping_groceries_spend'])
@@ -99,7 +99,7 @@ def optimize():
     maintenance_perct_adjustment = LpVariable("Maintenance",0,0.20)
     savings = LpVariable("Savings")
     budget_2 += savings
-    # compute the minimum percent on the actuals 
+    # compute the minimum percent on the actuals
     mthly_home_utility_der = monthly_home_utility_spend * (1 - home_utility_perct_adjustment)
     mthly_transportation_der = monthly_transportation_spend * (1 - transportation_perct_adjustment)
     mthly_shopping_groceries_der = monthly_shopping_groceries_spend * (1 - shopping_groceries_perct_adjustment)
@@ -137,7 +137,7 @@ def optimize():
     # solve the problem
     status = budget_2.solve(pulp.PULP_CBC_CMD(keepFiles=True))
     #LpStatus[status]
-    # Display values of the variables 
+    # Display values of the variables
     minimized_home_utility = monthly_home_utility_spend * (1 - pulp.value(home_utility_perct_adjustment))
     minimized_transportation = monthly_transportation_spend * (1 - pulp.value(transportation_perct_adjustment))
     minimized_shopping_groceries = monthly_shopping_groceries_spend * ( 1 - pulp.value(shopping_groceries_perct_adjustment))
@@ -165,13 +165,18 @@ def optimize():
     #return json
     return jsonify(r)
 
-   
+
 if __name__ == '__main__':
     port = int(os.getenv('PORT'))
     host = str(os.getenv('HOST'))
 
     app.run(port=port, host=host)
+<<<<<<< HEAD
     
+=======
+    #app.run(debug=False)
+
+>>>>>>> 02b49f374d3dbbc23b9f5d94438d4b02e699e171
     # import os
     # HOST = os.environ.get('SERVER_HOST', 'localhost')
     # try:
@@ -180,6 +185,6 @@ if __name__ == '__main__':
     #     PORT = 1000
     # app.run(HOST, PORT, debug=True)
 
-    
+
 '''if __name__ == '__main__':
     app.run(debug=True, port=1000)'''

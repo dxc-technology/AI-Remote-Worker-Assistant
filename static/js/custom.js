@@ -23,8 +23,9 @@ $("#btnBudgetCalculator").click(function() {
 });
 
 
-function hide() {
+function hideCalculator() {
     $("#budgetCalculator").fadeOut();
+    $("#btnBudgetCalculatorDiv").show();
 }
 
 // $("#clickme").click(function() {
@@ -34,9 +35,9 @@ function hide() {
 // });
 
 
-$("#inputPls").on("click", function() {
-    modify();
-});
+// $("#inputPls").on("click", function() {
+//     modify();
+// });
 
 function runOptimizer() {
     displaySliderValue();
@@ -44,10 +45,22 @@ function runOptimizer() {
     // postData();
 }
 
+$("#btnBudgetCalculator").click(function() {
+    $("#btnBudgetCalculatorDiv").hide();
+});
+
+function hideButton() {
+
+}
+
+
+
 function show_hide() {
     var container = document.getElementById("budgetCalculator");
+    var launcher = document.getElementById("btnBudgetCalculatorDiv");
     if (container.style.display == "none") {
         container.style.display = "block";
+
     } else {
         container.style.display = "none";
     }

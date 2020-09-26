@@ -171,7 +171,6 @@ if __name__ == '__main__':
     host = str(os.getenv('HOST'))
 
     app.run(port=port, host=host)
-    #app.run(debug=False)
     
     # import os
     # HOST = os.environ.get('SERVER_HOST', 'localhost')

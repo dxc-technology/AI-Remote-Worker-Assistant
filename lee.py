@@ -75,12 +75,16 @@ def optimize():
 
     # find budget adjustments that work
     status = monthly_adjustments.solve()
+    successfully_optimized = status > 0
 
     # Return values of the variables
     new_budget = {}
-    for category in spending_categories:
-        adjustment = value(adjustment_factor_variable[category])
-        new_budget[category] = spending[category] * (1 - adjustment)
+    if successfully_optimized:
+        for category in spending_categories:
+            adjustment = value(adjustment_factor_variable[category])
+            new_budget[category] = spending[category] * (1 - adjustment)
+    else:
+        new_budget = {}
 
     return jsonify(new_budget)
 

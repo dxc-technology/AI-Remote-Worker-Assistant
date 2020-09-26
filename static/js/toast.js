@@ -20,10 +20,10 @@
     }
 
     $("#toast-success").on("click", function() {
+        toastr.options.progressBar = "true";
         toastr.remove();
         toastr.options.positionClass = "toast-top-left";
-        toastr.success('We are updating the estimates using your account transaction data.', 'Success!');
-        toastr.options.progressBar = "true";
+        toastr.success('Using Bank APIs to update AI', 'Bank APIs');
     });
     $("#toast-danger").on("click", function() {
         toastr.remove();

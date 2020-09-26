@@ -43,12 +43,32 @@
 function loadChart() {
     const myApi = "https://cors-anywhere.herokuapp.com/https://hello-lee.herokuapp.com/optimize"
     var details = "";
+    var details1 = "";
+    var details2 = "";
+    var details3 = "";
+    var details4 = "";
+    var details5 = "";
+    var details6 = "";
+    var details7 = "";
+    var details8 = "";
+    var details9 = "";
+
     async function getAPI(url) {
         const res = await fetch(url);
         const mydata = await res.json();
         details = mydata.minimized_entertainment;
+        details1 = mydata.minimized_health;
+        details2 = mydata.minimized_utility;
+        details3 = mydata.minimized_insurance;
+        details4 = mydata.minimized_maintenance;
+        details5 = mydata.minimized_personal_family_care;
+        details6 = mydata.minimized_restaurant_dinning;
+        details7 = mydata.minimized_shopping_groceries;
+        details8 = mydata.minimized_transportation;
+        details9 = mydata.minimized_travel;
         console.log(details)
         console.log(mydata);
+
 
         //Doughnut Chart
         new Chart(document.getElementById("chartBudget"), {
@@ -60,7 +80,7 @@ function loadChart() {
                     // backgroundColor: ["#357ffa", "#f7b11b", "#ff6c60", "#8663e1", "#08bf6f", "#357ffa", "#f7b11b", "#ff6c60", "#8663e1", "#08bf6f"],
                     // backgroundColor: ["#17406D", "#074986", "#095397", "#0E6BC0", "#487ECA", "#7A99D2", "#98ADDA", "#B2C0E1", "#C7D1E9", "#DCF7BA"],
                     backgroundColor: ["#6F2C91", "#40BADA", "#DF6D27", "#DDB726", "#0067B3", "#8FB73E", "#6F2C91", "#40BADA", "#DF6D27", "#DDB726", "#0067B3", ],
-                    data: [details, details, details, details, details, details, details, details, details, 433]
+                    data: [details, details1, details2, details3, details4, details5, details6, details7, details8, details9]
                 }]
             },
             options: {

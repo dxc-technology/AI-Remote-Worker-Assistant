@@ -61,6 +61,10 @@ def optimize():
         factors.append(adjustment_factor_variable[category])
     monthly_adjustments += lpSum(factors)
 
+    # we don't have the option to sell our possessions (negative adjustment factor)
+    for category in spending_categories:
+        monthly_adjustments += adjustment_factor_variable[category] >= 0
+
     # the adjustments cannot take us below a minimum standard of living
     for category in spending_categories:
         monthly_adjustments += spending[category] * (1 - adjustment_factor_variable[category]) >= spending_minimum[

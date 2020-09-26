@@ -33,38 +33,40 @@
             // var lbMaintenance = document.getElementById("").value;
             // var lbSavings = document.getElementById("").value;
 
-            var valHome = document.getElementById("sliderHome").value;
-            var valTransportation = document.getElementById("sliderTransportation").value;
-            var valShopping = document.getElementById("sliderShopping").value;
-            var valPersonal = document.getElementById("sliderPersonal").value;
-            var valRestaurant = document.getElementById("sliderRestaurant").value;
-            var valInsurance = document.getElementById("sliderInsurance").value;
-            var valEntertainment = document.getElementById("sliderEntertainment").value;
-            var valTravel = document.getElementById("sliderTravel").value;
-            var valHealth = document.getElementById("sliderHealth").value;
-            var valMaintenance = document.getElementById("sliderMaintenance").value;
-            var valSavings = document.getElementById("sliderSavings").value;
+            var valHome = parseFloat(document.getElementById("sliderHome").value);
+            var valTransportation = parseFloat(document.getElementById("sliderTransportation").value);
+            var valShopping = parseFloat(document.getElementById("sliderShopping").value);
+            var valPersonal = parseFloat(document.getElementById("sliderPersonal").value);
+            var valRestaurant = parseFloat(document.getElementById("sliderRestaurant").value);
+            var valInsurance = parseFloat(document.getElementById("sliderInsurance").value);
+            var valEntertainment = parseFloat(document.getElementById("sliderEntertainment").value);
+            var valTravel = parseFloat(document.getElementById("sliderTravel").value);
+            var valHealth = parseFloat(document.getElementById("sliderHealth").value);
+            var valMaintenance = parseFloat(document.getElementById("sliderMaintenance").value);
+            var valSavings = parseFloat(document.getElementById("sliderSavings").value);
 
             //http://127.0.0.1:5000/optimize?income=2400&categories=['foodx', 'clothing', 'shelter', 'savings']&spending={'foodx': 700, 'clothing': 200, 'shelter': 1700, 'savings': 250}&min={'foodx': 400, 'clothing': 50, 'shelter': 1200, 'savings': 250}
 
             //update the optimizer with new input
-            url = "{{svc}}optimize?income=" + valIncome +
+            url = "{{svc}}/optimize?income=" + valIncome +
                 "&categories=['home', 'transportation', 'shopping', 'personal', 'restaurant', 'insurance', 'entertainment', 'travel', 'health', 'maintenance', 'savings']&spending={" +
-                "'home': " + sliderHome + ', ' +
-                "'transportation': " + sliderTransportation + ', ' +
-                "'shopping': " + sliderShopping + ', ' +
-                "'personal': " + sliderPersonal + ', ' +
-                "'restaurant': " + sliderRestaurant + ', ' +
-                "'insurance': " + sliderInsurance + ', ' +
-                "'entertainment': " + sliderEntertainment + ', ' +
-                "'travel': " + sliderTravel + ', ' +
-                "'health': " + sliderHealth + ', ' +
-                "'maintenance': " + sliderMaintenance + ', ' +
-                "'savings': " + sliderSavings +
-                "'}&min={'home': 50, 'transportation': 50,'shopping': 50,'personal': 50,'restaurant': 50,'insurance': 50,'entertainment': 50,'travel': 50, 'health': 50, 'maintenance': 50, 'savings': 50}"
-            res = httpGet(url);
-            // chart.innerHTML = res;
-            loadChart();
+                "'home': " + valHome + ', ' +
+                "'transportation': " + valTransportation + ', ' +
+                "'shopping': " + valShopping + ', ' +
+                "'personal': " + valPersonal + ', ' +
+                "'restaurant': " + valRestaurant + ', ' +
+                "'insurance': " + valInsurance + ', ' +
+                "'entertainment': " + valEntertainment + ', ' +
+                "'travel': " + valTravel + ', ' +
+                "'health': " + valHealth + ', ' +
+                "'maintenance': " + valMaintenance + ', ' +
+                "'savings': " + valSavings +
+                "}&min={'home': 150, 'transportation': 150,'shopping': 450,'personal': 650,'restaurant': 750,'insurance': 500,'entertainment': 570,'travel': 590, 'health': 10, 'maintenance': 50, 'savings': 50}"
+                // res = httpGet(url);
+                // chart.innerHTML = res;
+                // loadChart(url);
+
+            // alert("localhost:1000" + url);
 
         }
 
@@ -156,7 +158,7 @@
                                         <div class="form-group row">
                                             <label for="inputIncome" class="col-sm-3 h2 control-label font-weight-bold">Income</label>
                                             <div class="col-sm-9">
-                                                <input id="inputIncome" type="number" min="0" class="form-control-lg" value="110">
+                                                <input id="inputIncome" type="number" min="0" class="form-control-lg" value="240000">
                                             </div>
                                             <!-- <button type="button" id="inputPls" class="btn btn-outline-primary">
                                                 <i class="fas fa-edit    "></i>

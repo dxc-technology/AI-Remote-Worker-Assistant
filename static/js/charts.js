@@ -40,8 +40,10 @@
 
 // 'home', 'transportation', 'shopping', 'personal', 'restaurant', 'insurance', 'entertainment', 'travel', 'health', 'maintenance', 'savings'
 
-function loadChart() {
-    const myApi = "https://cors-anywhere.herokuapp.com/https://hello-lee.herokuapp.com/optimize"
+function loadChart(url) {
+
+    // const myApi = url;
+    const myApi = "https://cors-anywhere.herokuapp.com/https://hello-lee.herokuapp.com/optimize";
     var details = "";
     var details1 = "";
     var details2 = "";

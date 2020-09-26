@@ -10,7 +10,7 @@
 
     $(".js-range-slider").ionRangeSlider({
         skin: 'round',
-        min: 0,
+        min: 50,
         max: 10000
     });
 

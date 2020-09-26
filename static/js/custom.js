@@ -209,6 +209,7 @@ function displaySliderValue() {
     }
 
     computeTotal();
+
 }
 
 function computeTotal() {

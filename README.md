@@ -14,9 +14,10 @@ Our solution is to build an artificial intelligence that listens and makes helpf
 
 We’ve designed the software as custom extensions to an open core. The core of the software is a Python/Flask application connected to a DialogFlow chatbot. This is all opensource and it can be used to engage both current and prospective customers. 
 
-Custom extensions are built from the bank APIs. This idea is based on the work we’ve done in the Applied AI Studio under the guidance of Naresh Vyas. Historical transaction data, and custom knowledgebase data are used to make the AI even more personal and useful. This is a powerful incentive for attracting new customers and retaining existing ones.
+Custom extensions can be built from the third-party APIs. Historical transaction data, and custom knowledgebase data are used to make the AI even more personal and useful.
 
 
-### The Impact
-This kind of support is no longer optional.  Customers expect businesses to find new ways to connect with them online. We can help you exceed those expectations and build new bonds with all customers that have been affected by the pandemic.
+## The Impact
+This solution is one of the best ways to use a digital channel to show customers care and concern without marketing to them. It provides a unique balance of open access and personal relevance.
+
 

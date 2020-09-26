@@ -169,7 +169,7 @@ def optimize():
 if __name__ == '__main__':
     port = int(os.getenv('PORT'))
     print("Starting app on port %d" % port)
-    app.run(port=port, host='0.0.0.0')
+    app.run(host='0.0.0.0')
     #app.run(debug=False)
     
     # import os

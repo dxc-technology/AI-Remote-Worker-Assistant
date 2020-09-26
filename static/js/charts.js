@@ -38,7 +38,7 @@
 //     }
 // }
 
-
+// 'home', 'transportation', 'shopping', 'personal', 'restaurant', 'insurance', 'entertainment', 'travel', 'health', 'maintenance', 'savings'
 
 function loadChart() {
     const myApi = "https://cors-anywhere.herokuapp.com/https://hello-lee.herokuapp.com/optimize"
@@ -56,16 +56,16 @@ function loadChart() {
     async function getAPI(url) {
         const res = await fetch(url);
         const mydata = await res.json();
-        details = mydata.minimized_entertainment;
-        details1 = mydata.minimized_health;
-        details2 = mydata.minimized_home_utility;
-        details3 = mydata.minimized_insurance;
-        details4 = mydata.minimized_maintenance;
-        details5 = mydata.minimized_personal_family_care;
-        details6 = mydata.minimized_restaurant_dinning;
-        details7 = mydata.minimized_shopping_groceries;
-        details8 = mydata.minimized_transportation;
-        details9 = mydata.minimized_travel;
+        details = mydata.home;
+        details1 = mydata.transportation;
+        details2 = mydata.shopping;
+        details3 = mydata.personal;
+        details4 = mydata.restaurant;
+        details5 = mydata.insurance;
+        details6 = mydata.entertainment;
+        details7 = mydata.travel;
+        details8 = mydata.health;
+        details9 = mydata.maintenance;
         console.log(details)
         console.log(mydata);
 

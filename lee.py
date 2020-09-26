@@ -40,8 +40,8 @@ def optimize():
     # Given monthly income 
     income = 8000
     # Minimum limit for each category
-    monthly_min_home_utility = request.form["sliderHome"]
-    Console.Log(monthly_min_home_utility)
+    monthly_min_home_utility = 10.0
+    # Console.Log(monthly_min_home_utility)
     monthly_min_transportation = 10.0
     monthly_min_shopping_groceries = 10.0
     monthly_min_personal_family_care = 10.0
@@ -155,17 +155,17 @@ def optimize():
 
    
 if __name__ == '__main__':
-    # port = int(os.getenv('PORT'))
-    # print("Starting app on port %d" % port)
-    # app.run(debug=False, port=port, host='0.0.0.0')
+    port = int(os.getenv('PORT'))
+    print("Starting app on port %d" % port)
+    app.run(debug=False, port=port, host='0.0.0.0')
     
-    import os
-    HOST = os.environ.get('SERVER_HOST', 'localhost')
-    try:
-        PORT = int(os.environ.get('SERVER_PORT', '1000'))
-    except ValueError:
-        PORT = 1000
-    app.run(HOST, PORT, debug=True)
+    # import os
+    # HOST = os.environ.get('SERVER_HOST', 'localhost')
+    # try:
+    #     PORT = int(os.environ.get('SERVER_PORT', '1000'))
+    # except ValueError:
+    #     PORT = 1000
+    # app.run(HOST, PORT, debug=True)
 
     
 '''if __name__ == '__main__':

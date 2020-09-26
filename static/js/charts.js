@@ -58,7 +58,7 @@ function loadChart() {
         const mydata = await res.json();
         details = mydata.minimized_entertainment;
         details1 = mydata.minimized_health;
-        details2 = mydata.minimized_utility;
+        details2 = mydata.minimized_home_utility;
         details3 = mydata.minimized_insurance;
         details4 = mydata.minimized_maintenance;
         details5 = mydata.minimized_personal_family_care;

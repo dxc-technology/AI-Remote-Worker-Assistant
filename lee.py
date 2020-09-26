@@ -37,8 +37,10 @@ def home():
 def optimize():
     # Step 2 : Define the problem : Maximize the savings
     budget_2 = LpProblem("Monthly_Savings",LpMaximize)
+
     # Given monthly income
-    income = 8000
+    income = float(request.args['income'])
+
     # Minimum limit for each category
     monthly_min_home_utility = 10.0
     # Console.Log(monthly_min_home_utility)
@@ -171,16 +173,4 @@ if __name__ == '__main__':
     host = str(os.getenv('HOST'))
 
     app.run(port=port, host=host)
-    #app.run(debug=False)
 
-    # import os
-    # HOST = os.environ.get('SERVER_HOST', 'localhost')
-    # try:
-    #     PORT = int(os.environ.get('SERVER_PORT', '1000'))
-    # except ValueError:
-    #     PORT = 1000
-    # app.run(HOST, PORT, debug=True)
-
-
-'''if __name__ == '__main__':
-    app.run(debug=True, port=1000)'''

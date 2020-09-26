@@ -63,16 +63,16 @@ def optimize():
     mmonthly_maintenance = 110.0
     # Actual expense for each category
     #_input = request.args['input']
-    monthly_home_utility_spend = request.args['monthly_home_utility_spend']
-    monthly_transportation_spend = request.args['monthly_transportation_spend']
-    monthly_shopping_groceries_spend = request.args['monthly_shopping_groceries_spend']
-    monthly_personal_family_care_spend = request.args['monthly_personal_family_care_spend']
-    monthly_restaurant_dinning_spend = request.args['monthly_restaurant_dinning_spend']
-    monthly_insurance_spend = request.args['monthly_insurance_spend']
-    monthly_entertainment_spend = request.args['monthly_entertainment_spend']
-    monthly_travel_spend = request.args['monthly_travel_spend']
-    monthly_health_spend = request.args['monthly_health_spend']
-    monthly_maintenance_spend = request.args['monthly_maintenance_spend']
+    monthly_home_utility_spend = 460.0
+    monthly_transportation_spend = 110.0
+    monthly_shopping_groceries_spend = 100.0
+    monthly_personal_family_care_spend = 35.0
+    monthly_restaurant_dinning_spend = 140.0
+    monthly_insurance_spend = 420.0
+    monthly_entertainment_spend = 100.0
+    monthly_travel_spend = 210.0
+    monthly_health_spend = 70.0
+    monthly_maintenance_spend = 100.0
     # Define the decision variables
     home_utility_perct_adjustment = LpVariable("Home_Utilities",0,0.2)
     transportation_perct_adjustment = LpVariable("Transportation",0,0.20)

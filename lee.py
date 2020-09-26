@@ -1,5 +1,5 @@
 #import flask
-#import requests
+from flask import request
 import os
 import json
 import ast
@@ -33,14 +33,15 @@ def home():
     #return render_template('index.html', svc='http://127.0.0.1:1000/')
     return render_template('index.html')
 
-@app.route('/optimize',methods=['GET', 'POST'])
+@app.route('/optimize', methods=['GET', 'POST'])
 def optimize():
     # Step 2 : Define the problem : Maximize the savings
     budget_2 = LpProblem("Monthly_Savings",LpMaximize)
     # Given monthly income 
     income = 8000
     # Minimum limit for each category
-    monthly_min_home_utility = 10.0
+    monthly_min_home_utility = request.form["sliderHome"]
+    Console.Log(monthly_min_home_utility)
     monthly_min_transportation = 10.0
     monthly_min_shopping_groceries = 10.0
     monthly_min_personal_family_care = 10.0
@@ -151,19 +152,21 @@ def optimize():
     #json = dumps(r)
     #return json
     return jsonify(r)
+
    
 if __name__ == '__main__':
-    port = int(os.getenv('PORT'))
-    print("Starting app on port %d" % port)
-    app.run(debug=False, port=port, host='0.0.0.0')
+    # port = int(os.getenv('PORT'))
+    # print("Starting app on port %d" % port)
+    # app.run(debug=False, port=port, host='0.0.0.0')
     
-    # import os
-    # HOST = os.environ.get('SERVER_HOST', 'localhost')
-    # try:
-    #     PORT = int(os.environ.get('SERVER_PORT', '1000'))
-    # except ValueError:
-    #     PORT = 1000
-    # app.run(HOST, PORT)
+    import os
+    HOST = os.environ.get('SERVER_HOST', 'localhost')
+    try:
+        PORT = int(os.environ.get('SERVER_PORT', '1000'))
+    except ValueError:
+        PORT = 1000
+    app.run(HOST, PORT, debug=True)
+
     
 '''if __name__ == '__main__':
     app.run(debug=True, port=1000)'''

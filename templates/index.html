@@ -42,7 +42,8 @@
             //update the optimizer with new input
             url = "{{svc}}optimize?input=" + input
             res = httpGet(url)
-            chart.innerHTML = res;f
+            chart.innerHTML = res;
+            f
         }
 
         function runOptimizer() {
@@ -69,6 +70,10 @@
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename = 'css/ion.rangeSlider.min.css') }}">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+
+    <!-- Page Specific CSS (Toastr.css) -->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename = 'css/toastr.min.css') }}">
+
 </head>
 
 <!-- Chart scripts -->
@@ -80,8 +85,8 @@
         <div class="ms-content-wrapper">
             <div class="row">
                 <div class="col-lg-1">
-                   <iframe src="https://leethebot2.herokuapp.com/" width="400px" height="650px" style="border:none;">
-                   </iframe>
+                    <iframe src="https://leethebot2.herokuapp.com/" width="400px" height="650px" style="border:none;">
+                    </iframe>
                 </div>
                 <div class="col-lg-3">
                     <h1></h1>
@@ -472,12 +477,13 @@
                                                 <div class="col-sm-1"></div>
 
                                                 <div class="col-sm-10">
-                                                    <button type="button" class="btn btn-secondary btn-block">
+                                                    <form id="toast-form">
+                                                        <button type="button" id="toast-success" class="btn btn-secondary btn-block">
                                                         <img src="static/css/logo-white.png" class="img-block" />
                                                         Ulster Bank
                                                     </button>
+                                                    </form>
                                                 </div>
-
                                                 <div class="col-sm-1"></div>
                                             </div>
                                         </div>
@@ -670,6 +676,10 @@
     <script src="{{url_for('static', filename='js/jquery-ui.min.js')}}"></script>
     <script src="{{url_for('static', filename='js/jquery-3.3.1.min.js')}}"></script>
 
+    <!-- Toast Scripts-->
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.2/js/toastr.min.js"></script>
+    <script src="{{url_for( 'static', filename='js/toast.js' )}} "></script>
+    <!-- <script src="{{url_for( 'static', filename='js/toastr.min.js' )}} "></script> -->
 
 </body>
 

@@ -15,14 +15,23 @@
 
 $("#btnBudgetCalculator").click(function() {
     if ($("#budgetCalculator").first().is(":hidden")) {
-        $("#budgetCalculator").show("slow");
+        $("#budgetCalculator").fadeIn();
+
     } else {
-        $("#budgetCalculator").hide();
+        $("#budgetCalculator").fadeOut();
     }
 });
 
 
+function hide() {
+    $("#budgetCalculator").fadeOut();
+}
 
+// $("#clickme").click(function() {
+//     $("#book").slideUp("slow", function() {
+//         // Animation complete.
+//     });
+// });
 
 
 $("#inputPls").on("click", function() {
@@ -224,11 +233,6 @@ function computeTotal() {
         $('#lbTotalAmount').css('color', '#49AA19');
         $('#lbTotal').css('color', '#49AA19');
     }
-
-    var totalHigh
-    var totalMediumLow = totalAmount - (totalAmount * .20)
-    var totalMeidumHigh = totalAmount - (totalAmount * .20)
-    var totalLow
 
 }
 

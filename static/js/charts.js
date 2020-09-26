@@ -2,17 +2,67 @@
 //     'use strict';
 
 
+function postData() {
 
+    const myApi = "https://cors-anywhere.herokuapp.com/https://hello-lee.herokuapp.com/optimize"
+    fetch(myApi, {
+            method: "POST",
+            body: JSON.stringify(monthly_expenses),
+            headers: { 'Content-Type': 'application/json' }
+
+        })
+        .then(res => console.log("Successiful", res))
+
+
+    home_utility = document.getElementById("sliderHome");
+    transportation = document.getElementById("sliderTransportation");
+    shopping = document.getElementById("sliderShopping");
+    personal = document.getElementById("sliderPersonal");
+    restaurant = document.getElementById("sliderRestaurant");
+    insurance = document.getElementById("sliderShield");
+    entertainment = document.getElementById("sliderVideo");
+    travel = document.getElementById("sliderTravel");
+    health = document.getElementById("sliderHealth");
+    maintenance = document.getElementById("sliderMaintenance");
+
+    monthly_expenses = {
+        monthly_home_utility_spend: home_utility,
+        monthly_transportation_spend: transportation,
+        monthly_shopping_groceries_spend: shopping,
+        monthly_personal_family_care_spend: personal,
+        monthly_restaurant_dinning_spend: restaurant,
+        monthly_insurance_spend: insurance,
+        monthly_entertainment_spend: entertainment,
+        monthly_travel_spend: travel,
+        monthly_health_spend: health,
+        monthly_maintenance_spend: maintenance
+    }
+
+
+
+
+
+}
 
 
 
 function loadChart() {
 
-    fetch("https://hello-lee.herokuapp.com/optimize")
-        .then(response => response.json())
-        .then(data => {
-            console.log("Data:", data)
-        });
+
+
+    const myApi = "https://cors-anywhere.herokuapp.com/https://hello-lee.herokuapp.com/optimize"
+    async function getAPI(url) {
+        const res = await fetch(url);
+        var mydata = await res.json();
+        console.log(mydata);
+    }
+    getAPI(myApi);
+
+    entertainmentAmount = mydata.minimized_entertainment;
+
+
+
+
 
 
     //Doughnut Chart

@@ -32,6 +32,7 @@ $("#inputPls").on("click", function() {
 function runOptimizer() {
     displaySliderValue();
     loadChart();
+    postData();
 }
 
 function show_hide() {

@@ -10,8 +10,8 @@
 
     $(".js-range-slider").ionRangeSlider({
         skin: 'round',
-        // min: 0,
-        // max: 800
+        min: 0,
+        max: 10000
     });
 
     /* Skins */

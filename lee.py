@@ -169,16 +169,8 @@ def optimize():
 
 
 if __name__ == '__main__':
-    # port = int(os.getenv('PORT'))
-    # host = str(os.getenv('HOST'))
+    port = int(os.getenv('PORT'))
+    host = str(os.getenv('HOST'))
 
-    # app.run(port=port, host=host)
-
-    import os
-    HOST = os.environ.get('SERVER_HOST', 'localhost')
-    try:
-        PORT = int(os.environ.get('SERVER_PORT', '1000'))
-    except ValueError:
-        PORT = 1000
-    app.run(HOST, PORT, debug=True)
+    app.run(port=port, host=host)
 

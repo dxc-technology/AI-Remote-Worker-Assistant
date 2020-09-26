@@ -51,7 +51,7 @@
                 "'health': " + valHealth + ', ' +
                 "'maintenance': " + valMaintenance + ', ' +
                 "'savings': " + valSavings +
-                "}&min={'home': 0, 'transportation': 0,'shopping': 0,'personal': 0,'restaurant': 0,'insurance': 0,'entertainment': 0,'travel': 0, 'health': 0, 'maintenance': 0, 'savings': 0}"
+                "}&min={'home': 380, 'transportation': 400,'shopping': 400,'personal': 180,'restaurant': 90,'insurance': 180,'entertainment': 130,'travel': 700, 'health': 0, 'maintenance': 1000, 'savings': 300}"
                 // res = httpGet(url);
                 // chart.innerHTML = res;
                 // loadChart(url);
@@ -293,7 +293,7 @@
                                                     </td>
                                                     <td style="width: 45%">
                                                         <div class="ms-range-slider my-4">
-                                                            <input type="number" id="sliderHome" name="sliderAmount" class="js-range-slider" value="" />
+                                                            <input type="number" id="sliderHome" name="sliderAmount" class="js-range-slider" data-min="380" data-max="2000" onchange="displaySliderValue()" />
                                                         </div>
                                                     </td>
                                                     <td style="width: 20%">
@@ -317,7 +317,7 @@
                                                     </td>
                                                     <td style="width: 45%">
                                                         <div class="ms-range-slider my-4">
-                                                            <input id="sliderTransportation" name="sliderAmount" type="text" class="js-range-slider" value="" onchange="displaySliderValue();" />
+                                                            <input id="sliderTransportation" name="sliderAmount" type="text" class="js-range-slider" data-min="400" data-max="900" onchange="displaySliderValue();" />
                                                         </div>
                                                     </td>
                                                     <td style="width: 20%">
@@ -341,7 +341,7 @@
                                                     </td>
                                                     <td style="width: 45%">
                                                         <div class="ms-range-slider my-4">
-                                                            <input id="sliderShopping" name="sliderAmount" type="text" class="js-range-slider" value="" onchange="displaySliderValue();" />
+                                                            <input id="sliderShopping" name="sliderAmount" type="text" class="js-range-slider" value="" data-min="400" data-max="1200" onchange="displaySliderValue();" />
                                                         </div>
                                                     </td>
                                                     <td style="width: 20%">
@@ -366,7 +366,7 @@
                                                     </td>
                                                     <td style="width: 45%">
                                                         <div class="ms-range-slider my-4">
-                                                            <input id="sliderPersonal" name="sliderAmount" type="text" class="js-range-slider" value="" onchange="displaySliderValue();" />
+                                                            <input id="sliderPersonal" name="sliderAmount" type="text" class="js-range-slider" value="" data-min="180" data-max="800" onchange="displaySliderValue();" />
                                                         </div>
                                                     </td>
                                                     <td style="width: 20%">
@@ -391,7 +391,7 @@
                                                     </td>
                                                     <td style="width: 45%">
                                                         <div class="ms-range-slider my-4">
-                                                            <input id="sliderRestaurant" name="sliderAmount" type="text" class="js-range-slider" value="" onchange="displaySliderValue();" />
+                                                            <input id="sliderRestaurant" name="sliderAmount" type="text" class="js-range-slider" value="" data-min="90" data-max="560" onchange="displaySliderValue();" />
                                                         </div>
                                                     </td>
                                                     <td style="width: 20%">
@@ -416,7 +416,7 @@
                                                     </td>
                                                     <td style="width: 45%">
                                                         <div class="ms-range-slider my-4">
-                                                            <input id="sliderInsurance" name="sliderAmount" type="text" class="js-range-slider" value="" onchange="displaySliderValue();" />
+                                                            <input id="sliderInsurance" name="sliderAmount" type="text" class="js-range-slider" value="" data-min="180" data-max="2000" onchange="displaySliderValue();" />
                                                         </div>
                                                     </td>
                                                     <td style="width: 20%">
@@ -442,7 +442,7 @@
                                                     </td>
                                                     <td style="width: 45%">
                                                         <div class="ms-range-slider my-4">
-                                                            <input id="sliderEntertainment" name="sliderAmount" type="text" class="js-range-slider" value="" onchange="displaySliderValue();" />
+                                                            <input id="sliderEntertainment" name="sliderAmount" type="text" class="js-range-slider" value="" data-min="130" data-max="1400" onchange="displaySliderValue();" />
                                                         </div>
                                                     </td>
                                                     <td style="width: 20%">
@@ -466,7 +466,7 @@
                                                     </td>
                                                     <td style="width: 45%">
                                                         <div class="ms-range-slider my-4">
-                                                            <input id="sliderTravel" name="sliderAmount" type="text" class="js-range-slider" value="" onchange="displaySliderValue();" />
+                                                            <input id="sliderTravel" name="sliderAmount" type="text" class="js-range-slider" value="" data-min="700" data-max="3500" onchange="displaySliderValue();" />
                                                         </div>
                                                     </td>
                                                     <td style="width: 20%">
@@ -490,7 +490,7 @@
                                                     </td>
                                                     <td style="width: 45%">
                                                         <div class="ms-range-slider my-4">
-                                                            <input id="sliderHealth" name="sliderAmount" type="text" class="js-range-slider" value="" onchange="displaySliderValue();" />
+                                                            <input id="sliderHealth" name="sliderAmount" type="text" class="js-range-slider" value="" data-min="1200" data-max="4600" onchange="displaySliderValue();" />
                                                         </div>
                                                     </td>
                                                     <td style="width: 20%">
@@ -515,7 +515,7 @@
                                                     </td>
                                                     <td style="width: 45%">
                                                         <div class="ms-range-slider my-4">
-                                                            <input id="sliderMaintenance" name="sliderAmount" type="text" class="js-range-slider" value="" onchange="displaySliderValue();" />
+                                                            <input id="sliderMaintenance" name="sliderAmount" type="text" class="js-range-slider" value="" data-min="1000" data-max="6000" onchange="displaySliderValue();" />
                                                         </div>
                                                     </td>
                                                     <td style="width: 20%">
@@ -539,7 +539,7 @@
                                                     </td>
                                                     <td style="width: 45%">
                                                         <div class="ms-range-slider my-4">
-                                                            <input id="sliderSavings" name="sliderAmount" type="text" class="js-range-slider" value="" onchange="displaySliderValue();" />
+                                                            <input id="sliderSavings" name="sliderAmount" type="text" class="js-range-slider" value="" data-min="300" data-max="10000" onchange="displaySliderValue();" />
                                                         </div>
                                                     </td>
                                                     <td style="width: 20%">

@@ -9,25 +9,6 @@
     <meta name="author" content="">
 
     <title>Lee</title>
-    <script>
-        function modify() {
-
-            alert("his");
-
-            var homeSlider = document.getElementById("sliderHome");
-            homeSlider.setAttribute("data-min", '1');
-
-            // let my_range = $(".js-range-slider").data("ionRangeSlider");
-
-            // my_range.update({
-
-            // })
-
-
-            // var myInput = document.getElementById('sliderHome');
-            // myInput['data-min'] = '1';
-        }
-    </script>
     <script type="text/javascript">
         function httpGet(theUrl) {
             var xmlHttp = new XMLHttpRequest();
@@ -37,18 +18,61 @@
         }
 
         function optimize() {
-            var input = document.getElementById("input_txt").value;
+
+            var valIncome = document.getElementById("inputIncome").value;
+
+            // var lbHome = document.getElementById("").value;
+            // var lbTransportation = document.getElementById("").value;
+            // var lbShopping = document.getElementById("").value;
+            // var lbPersonal = document.getElementById("").value;
+            // var lbRestaurant = document.getElementById("").value;
+            // var lbInsurance = document.getElementById("").value;
+            // var lbEntertainment = document.getElementById("").value;
+            // var lbTravel = document.getElementById("").value;
+            // var lbHealth = document.getElementById("").value;
+            // var lbMaintenance = document.getElementById("").value;
+            // var lbSavings = document.getElementById("").value;
+
+            var valHome = document.getElementById("sliderHome").value;
+            var valTransportation = document.getElementById("sliderTransportation").value;
+            var valShopping = document.getElementById("sliderShopping").value;
+            var valPersonal = document.getElementById("sliderPersonal").value;
+            var valRestaurant = document.getElementById("sliderRestaurant").value;
+            var valInsurance = document.getElementById("sliderInsurance").value;
+            var valEntertainment = document.getElementById("sliderEntertainment").value;
+            var valTravel = document.getElementById("sliderTravel").value;
+            var valHealth = document.getElementById("sliderHealth").value;
+            var valMaintenance = document.getElementById("sliderMaintenance").value;
+            var valSavings = document.getElementById("sliderSavings").value;
+
+            //http://127.0.0.1:5000/optimize?income=2400&categories=['foodx', 'clothing', 'shelter', 'savings']&spending={'foodx': 700, 'clothing': 200, 'shelter': 1700, 'savings': 250}&min={'foodx': 400, 'clothing': 50, 'shelter': 1200, 'savings': 250}
 
             //update the optimizer with new input
-            url = "{{svc}}optimize?input=" + input
-            res = httpGet(url)
-            chart.innerHTML = res;
-            f
+            url = "{{svc}}optimize?income=" + valIncome +
+                "&categories=['home', 'transportation', 'shopping', 'personal', 'restaurant', 'insurance', 'entertainment', 'travel', 'health', 'maintenance', 'savings']&spending={" +
+                "'home': " + sliderHome + ', ' +
+                "'transportation': " + sliderTransportation + ', ' +
+                "'shopping': " + sliderShopping + ', ' +
+                "'personal': " + sliderPersonal + ', ' +
+                "'restaurant': " + sliderRestaurant + ', ' +
+                "'insurance': " + sliderInsurance + ', ' +
+                "'entertainment': " + sliderEntertainment + ', ' +
+                "'travel': " + sliderTravel + ', ' +
+                "'health': " + sliderHealth + ', ' +
+                "'maintenance': " + sliderMaintenance + ', ' +
+                "'savings': " + sliderSavings +
+                "'}&min={'home': 50, 'transportation': 50,'shopping': 50,'personal': 50,'restaurant': 50,'insurance': 50,'entertainment': 50,'travel': 50, 'health': 50, 'maintenance': 50, 'savings': 50}"
+            res = httpGet(url);
+            // chart.innerHTML = res;
+            loadChart();
+
         }
 
         function runOptimizer() {
             //re-optimizes every three seconds
             var t = setInterval(optimize, 3000);
+            displaySliderValue();
+            // loadChart();
         }
     </script>
 
@@ -122,10 +146,10 @@
                         <!-- <div class="ms-panel-body"> -->
                         <div class="col-md-12">
                             <form action="/optimize" method="POST">
-                                <button type="submit" class="btn btn-outline-primary">
+                                <!-- <button type="submit" class="btn btn-outline-primary">
                                     <i class="fas fa-edit    "></i>
                                     Submit
-                                </button>
+                                </button> -->
                                 <div class="row">
                                     <div class="col-md-7 ms-panel-body ">
 
@@ -134,10 +158,10 @@
                                             <div class="col-sm-9">
                                                 <input id="inputIncome" type="number" min="0" class="form-control-lg" value="110">
                                             </div>
-                                            <button type="button" id="inputPls" class="btn btn-outline-primary">
+                                            <!-- <button type="button" id="inputPls" class="btn btn-outline-primary">
                                                 <i class="fas fa-edit    "></i>
                                                 Compute
-                                            </button>
+                                            </button> -->
                                         </div>
 
 
@@ -176,7 +200,7 @@
                                                     </td>
                                                     <td style="width: 45%">
                                                         <div class="ms-range-slider my-4">
-                                                            <input id="sliderHome" name="sliderAmount" type="text" class="js-range-slider" value="" />
+                                                            <input type="number" id="sliderHome" name="sliderAmount" class="js-range-slider" value="" />
                                                         </div>
                                                     </td>
                                                     <td style="width: 20%">
@@ -299,12 +323,12 @@
                                                     </td>
                                                     <td style="width: 45%">
                                                         <div class="ms-range-slider my-4">
-                                                            <input id="sliderShield" name="sliderAmount" type="text" class="js-range-slider" value="" onchange="displaySliderValue();" />
+                                                            <input id="sliderInsurance" name="sliderAmount" type="text" class="js-range-slider" value="" onchange="displaySliderValue();" />
                                                         </div>
                                                     </td>
                                                     <td style="width: 20%">
                                                         <label class="h6">$</label>
-                                                        <label class="h6" for="sliderShield" name="lbAmount"></label>
+                                                        <label class="h6" for="sliderInsurance" name="lbAmount"></label>
                                                     </td>
                                                 </tr>
                                                 <!--Entertainment-->
@@ -325,12 +349,12 @@
                                                     </td>
                                                     <td style="width: 45%">
                                                         <div class="ms-range-slider my-4">
-                                                            <input id="sliderVideo" name="sliderAmount" type="text" class="js-range-slider" value="" onchange="displaySliderValue();" />
+                                                            <input id="sliderEntertainment" name="sliderAmount" type="text" class="js-range-slider" value="" onchange="displaySliderValue();" />
                                                         </div>
                                                     </td>
                                                     <td style="width: 20%">
                                                         <label class="h6">$</label>
-                                                        <label class="h6" for="sliderVideo" name="lbAmount"></label>
+                                                        <label class="h6" for="sliderEntertainment" name="lbAmount"></label>
                                                     </td>
                                                 </tr>
                                                 <!--Travel-->
@@ -612,11 +636,11 @@
                                                     </li>
                                                     <li>
                                                         <label class="ms-checkbox-wrap ms-checkbox-primary">
-                                                            <input type="checkbox" id="cb_savings" name="category"
+                                                            <input type="hidden" id="cb_savings" name="category"
                                                                 value="Savings" checked>
                                                             <i class="ms-checkbox-check"></i>
                                                         </label>
-                                                        <span>Savings</span>
+                                                        <!-- <span>Savings</span> -->
                                                     </li>
                                                 </ul>
                                             </div>

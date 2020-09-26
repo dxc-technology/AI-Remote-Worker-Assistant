@@ -39,12 +39,6 @@ function hideCalculator() {
 //     modify();
 // });
 
-function runOptimizer() {
-    displaySliderValue();
-    loadChart();
-    // postData();
-}
-
 $("#btnBudgetCalculator").click(function() {
     $("#btnBudgetCalculatorDiv").hide();
 });

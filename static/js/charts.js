@@ -42,8 +42,8 @@
 
 function loadChart(url) {
 
-    const myApi = url;
-    // const myApi = "https://cors-anywhere.herokuapp.com/https://hello-lee.herokuapp.com/optimize";
+    // const myApi = url;
+    const myApi = "https://cors-anywhere.herokuapp.com/https://hello-lee.herokuapp.com/optimize";
     var details = "";
     var details1 = "";
     var details2 = "";

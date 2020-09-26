@@ -40,7 +40,7 @@ function hideCalculator() {
 // });
 
 $("#btnBudgetCalculator").click(function() {
-    $("#btnBudgetCalculatorDiv").hide();
+    $("#btnBudgetCalculator").hide();
 });
 
 function hideButton() {

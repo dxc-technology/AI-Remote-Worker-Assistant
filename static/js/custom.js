@@ -25,7 +25,7 @@ $("#btnBudgetCalculator").click(function() {
 
 function hideCalculator() {
     $("#budgetCalculator").fadeOut();
-    $("#btnBudgetCalculatorDiv").show();
+    $("#btnBudgetCalculator").show();
 }
 
 // $("#clickme").click(function() {
@@ -209,6 +209,7 @@ function displaySliderValue() {
     }
 
     computeTotal();
+    // alert("localhost:1000" + url);
 
 }
 

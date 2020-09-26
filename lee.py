@@ -74,17 +74,6 @@ def optimize():
     monthly_travel_spend = 210.0
     monthly_health_spend = 70.0
     monthly_maintenance_spend = 100.0
-    
-#     monthly_home_utility_spend = float(request.args['monthly_home_utility_spend'])
-#     monthly_transportation_spend = float(request.args['monthly_transportation_spend'])
-#     monthly_shopping_groceries_spend =float(request.args['monthly_shopping_groceries_spend'])
-#     monthly_personal_family_care_spend = float(request.args['monthly_personal_family_care_spend'])
-#     monthly_restaurant_dinning_spend = float(request.args['monthly_restaurant_dinning_spend'])
-#     monthly_insurance_spend = float(request.args['monthly_insurance_spend'])
-#     monthly_entertainment_spend = float(request.args['monthly_entertainment_spend'])
-#     monthly_travel_spend = float(request.args['monthly_travel_spend'])
-#     monthly_health_spend = float(request.args['monthly_health_spend'])
-#     monthly_maintenance_spend = float(request.args['monthly_maintenance_spend'])
     # Define the decision variables
     home_utility_perct_adjustment = LpVariable("Home_Utilities",0,0.2)
     transportation_perct_adjustment = LpVariable("Transportation",0,0.20)

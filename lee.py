@@ -1,5 +1,5 @@
 #import flask
-#import requests
+from flask import request
 import os
 import json
 import ast
@@ -10,6 +10,10 @@ from pulp import LpVariable,LpProblem,LpStatus,LpMaximize,LpMinimize
 
 from flask import Flask, render_template, request, redirect, url_for,jsonify
 app = Flask(__name__)
+
+app.secret_key='N@twestkey1_2907!'
+cors = CORS(app)
+authenticated = False
 
 app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 0
 @app.after_request
@@ -29,7 +33,7 @@ def home():
     #return render_template('index.html', svc='http://127.0.0.1:1000/')
     return render_template('index.html')
 
-@app.route('/optimize',methods=['GET', 'POST'])
+@app.route('/optimize', methods=['GET', 'POST'])
 def optimize():
     # Step 2 : Define the problem : Maximize the savings
     budget_2 = LpProblem("Monthly_Savings",LpMaximize)
@@ -37,6 +41,7 @@ def optimize():
     income = 8000
     # Minimum limit for each category
     monthly_min_home_utility = 10.0
+    # Console.Log(monthly_min_home_utility)
     monthly_min_transportation = 10.0
     monthly_min_shopping_groceries = 10.0
     monthly_min_personal_family_care = 10.0
@@ -57,6 +62,7 @@ def optimize():
     mmonthly_travel = 250.0
     mmonthly_health = 200.0
     mmonthly_maintenance = 110.0
+    
     # Actual expense for each category
     #_input = request.args['input']
     monthly_home_utility_spend = 460.0
@@ -69,6 +75,17 @@ def optimize():
     monthly_travel_spend = 210.0
     monthly_health_spend = 70.0
     monthly_maintenance_spend = 100.0
+    
+#     monthly_home_utility_spend = float(request.args['monthly_home_utility_spend'])
+#     monthly_transportation_spend = float(request.args['monthly_transportation_spend'])
+#     monthly_shopping_groceries_spend =float(request.args['monthly_shopping_groceries_spend'])
+#     monthly_personal_family_care_spend = float(request.args['monthly_personal_family_care_spend'])
+#     monthly_restaurant_dinning_spend = float(request.args['monthly_restaurant_dinning_spend'])
+#     monthly_insurance_spend = float(request.args['monthly_insurance_spend'])
+#     monthly_entertainment_spend = float(request.args['monthly_entertainment_spend'])
+#     monthly_travel_spend = float(request.args['monthly_travel_spend'])
+#     monthly_health_spend = float(request.args['monthly_health_spend'])
+#     monthly_maintenance_spend = float(request.args['monthly_maintenance_spend'])
     # Define the decision variables
     home_utility_perct_adjustment = LpVariable("Home_Utilities",0,0.2)
     transportation_perct_adjustment = LpVariable("Transportation",0,0.20)
@@ -147,6 +164,7 @@ def optimize():
     #json = dumps(r)
     #return json
     return jsonify(r)
+
    
 if __name__ == '__main__':
     port = int(os.getenv('PORT'))
@@ -160,7 +178,8 @@ if __name__ == '__main__':
     #     PORT = int(os.environ.get('SERVER_PORT', '1000'))
     # except ValueError:
     #     PORT = 1000
-    # app.run(HOST, PORT)
+    # app.run(HOST, PORT, debug=True)
+
     
 '''if __name__ == '__main__':
     app.run(debug=True, port=1000)'''

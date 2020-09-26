@@ -68,7 +68,7 @@
     <!-- Range Slider-->
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename = 'css/ion.rangeSlider.min.css') }}">
 
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
 </head>
 
 <!-- Chart scripts -->
@@ -112,7 +112,11 @@
                         </div>
                         <!-- <div class="ms-panel-body"> -->
                         <div class="col-md-12">
-                            <form>
+                            <form action="/optimize" method="POST">
+                                <button type="submit" class="btn btn-outline-primary">
+                                    <i class="fas fa-edit    "></i>
+                                    Submit
+                                </button>
                                 <div class="row">
                                     <div class="col-md-7 ms-panel-body ">
 
@@ -121,10 +125,10 @@
                                             <div class="col-sm-10">
                                                 <input id="inputIncome" type="number" min="0" class="form-control" value="110">
                                             </div>
-                                            <!-- <button type="submit" id="inputPls" class="btn btn-outline-primary">
+                                            <button type="submit" id="inputPls" class="btn btn-outline-primary">
                                                 <i class="fas fa-edit    "></i>
                                                 Compute
-                                            </button> -->
+                                            </button>
                                         </div>
 
 
@@ -158,7 +162,7 @@
                                                     </td>
                                                     <td style="width: 45%">
                                                         <div class="ms-range-slider my-4">
-                                                            <input id="sliderHome" name="sliderAmount" type="text" class="js-range-slider" value="" />
+                                                            <input id="sliderHome" name="sliderHome" type="text" class="js-range-slider" value="" />
                                                         </div>
                                                     </td>
                                                     <td style="width: 20%">

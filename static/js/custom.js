@@ -15,7 +15,7 @@
 
 $("#btnBudgetCalculator").click(function() {
     if ($("#budgetCalculator").first().is(":hidden")) {
-        $("#budgetCalculator").slideDown("slow");
+        $("#budgetCalculator").show("slow");
     } else {
         $("#budgetCalculator").hide();
     }
@@ -32,6 +32,7 @@ $("#inputPls").on("click", function() {
 function runOptimizer() {
     displaySliderValue();
     loadChart();
+    // postData();
 }
 
 function show_hide() {

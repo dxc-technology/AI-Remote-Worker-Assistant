@@ -12,7 +12,7 @@ This project falls under the theme of financial confidence and education. The gl
 ## The Solution
 Our solution is to build an artificial intelligence that listens and makes helpful suggestions. The interactive AI is trained on techniques that have been demonstrated effective at lowering stress and anxiety. The AI establishes a connection and gets permission from customers to make personalized suggestions. We use a linear optimizer to find creative suggestions for reaching personal goals with minimum hardship. Customers can improve the intelligence by connecting to their transaction history and to special-purpose knowledge bases.
 
-![Lee Architecture](https://github.com/tograh/testrepository/3DTest.png)
+<img src="Creative/lee-architecture.png"/>
 
 We’ve designed the software as custom extensions to an open core. The core of the software is a Python/Flask application connected to a DialogFlow chatbot. This is all opensource and it can be used to engage both current and prospective customers. 
 

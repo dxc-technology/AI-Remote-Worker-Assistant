@@ -170,7 +170,7 @@ if __name__ == '__main__':
     port = int(os.getenv('PORT'))
     print("Starting app on port %d" % port)
     #app.run(debug=True, port=port, host='0.0.0.0')
-    app.run()
+    app.run(debug=False)
     
     # import os
     # HOST = os.environ.get('SERVER_HOST', 'localhost')

@@ -108,6 +108,10 @@
                             <img src="/static/icons/budget.png" class="padding" height="10%"><label class="h4">
                                 Budget Calculator
                             </label>
+                            <button type="button" class="close" onclick="hide()" aria-label="Close"><span
+                                aria-hidden="true">&times;</span>
+                            <label style="color: white">CLOSE</label>
+                            </button>
 
                         </div>
                         <!-- <div class="ms-panel-body"> -->
@@ -121,9 +125,9 @@
                                     <div class="col-md-7 ms-panel-body ">
 
                                         <div class="form-group row">
-                                            <label for="inputIncome" class="col-sm-2 col-form-label h2 font-weight-bold">Income</label>
-                                            <div class="col-sm-10">
-                                                <input id="inputIncome" type="number" min="0" class="form-control" value="110">
+                                            <label for="inputIncome" class="col-sm-3 h2 control-label font-weight-bold">Income</label>
+                                            <div class="col-sm-9">
+                                                <input id="inputIncome" type="number" min="0" class="form-control-lg" value="110">
                                             </div>
                                             <button type="submit" id="inputPls" class="btn btn-outline-primary">
                                                 <i class="fas fa-edit    "></i>
@@ -137,7 +141,9 @@
                                             <thead>
                                                 <tr>
                                                     <th scope="col">Mandatory</th>
-                                                    <th colspan="3" class="text-right">
+                                                    <th></th>
+                                                    <th></th>
+                                                    <th colspan="3">
                                                         <button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#modalCategories">
                                                             <i class="fas fa-edit    "></i>
                                                             Edit Categories
@@ -152,7 +158,7 @@
                                                     <td style="width: 10%">
                                                         <div class="custom-control custom-checkbox">
                                                             <input type="checkbox" class="custom-control-input" id="cbBudgetHome"><span></span>
-                                                            <label class="custom-control-label" value="Home & Utilities" id='lbl' for="cbBudgetHome">
+                                                            <label class="custom-control-label" value="Home & Utilities" for="cbBudgetHome">
                                                                 <img src="static/icons/Home_black.png" />
                                                             </label>
                                                         </div>
@@ -162,7 +168,7 @@
                                                     </td>
                                                     <td style="width: 45%">
                                                         <div class="ms-range-slider my-4">
-                                                            <input id="sliderHome" name="sliderHome" type="text" class="js-range-slider" value="" />
+                                                            <input id="sliderHome" name="sliderAmount" type="text" class="js-range-slider" value="" />
                                                         </div>
                                                     </td>
                                                     <td style="width: 20%">
@@ -176,7 +182,7 @@
                                                         <div class="custom-control custom-checkbox">
                                                             <input type="checkbox" class="custom-control-input" id="cbBudgetTransportation">
                                                             <label class="custom-control-label" for="cbBudgetTransportation">
-                                                                <img src="static/icons/Home_black.png" />
+                                                                <img src="static/icons/Transportation_black.png" />
                                                             </label>
                                                         </div>
                                                     </td>
@@ -200,7 +206,7 @@
                                                         <div class="custom-control custom-checkbox">
                                                             <input type="checkbox" class="custom-control-input" id="cbBudgetShopping">
                                                             <label class="custom-control-label" for="cbBudgetShopping">
-                                                                <img src="static/icons/Home_black.png" />
+                                                                <img src="static/icons/Shopping_black.png" />
                                                             </label>
                                                         </div>
                                                     </td>
@@ -249,7 +255,7 @@
                                                         <div class="custom-control custom-checkbox">
                                                             <input type="checkbox" class="custom-control-input" id="cbBudgetRestaurant">
                                                             <label class="custom-control-label" for="cbBudgetRestaurant">
-                                                                <img src="static/icons/Home_black.png" />
+                                                                <img src="static/icons/Restaurants_black.png" />
                                                             </label>
                                                         </div>
                                                     </td>
@@ -324,7 +330,7 @@
                                                         <div class="custom-control custom-checkbox">
                                                             <input type="checkbox" class="custom-control-input" id="cbBudgetTravel">
                                                             <label class="custom-control-label" for="cbBudgetTravel">
-                                                                <img src="static/icons/Home_black.png" />
+                                                                <img src="static/icons/Travel_black.png" />
                                                             </label>
                                                         </div>
                                                     </td>
@@ -372,7 +378,7 @@
                                                         <div class="custom-control custom-checkbox">
                                                             <input type="checkbox" class="custom-control-input" id="cbBudgetMaintenance">
                                                             <label class="custom-control-label" for="cbBudgetMaintenance">
-                                                                <img src="static/icons/Home_black.png" />
+                                                                <img src="static/icons/Maintenance_black.png" />
                                                             </label>
                                                         </div>
                                                     </td>
@@ -415,7 +421,9 @@
                                                         <label class="h6" for="sliderSavings" name="lbAmount"></label>
                                                     </td>
                                                 </tr>
+                                                <tr>
 
+                                                </tr>
                                                 <!--Total-->
                                                 <!-- <tr name="budgetTotal">
                                                     <td colspan="4" class="text-right"><label class="h5"></label>Total: $</label>
@@ -487,7 +495,7 @@
                                 <div class="modal-header bg-gradient-info">
                                     <h3 class="modal-title has-icon text-white"><i class="flaticon-alert-1"></i> Edit Categories
                                     </h3>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                                    <button type="button" class="btn close" data-dismiss="modal" aria-label="Close"><span
                                             aria-hidden="true">&times;</span></button>
                                 </div>
 
@@ -593,15 +601,13 @@
                                                         </label>
                                                         <span> Maintenance </span>
                                                     </li>
-
-
-
                                                     <li>
                                                         <label class="ms-checkbox-wrap ms-checkbox-primary">
-                                                            <input type="hidden" id="cb_savings" name="category"
+                                                            <input type="checkbox" id="cb_savings" name="category" 
                                                                 value="Savings" checked>
                                                             <i class="ms-checkbox-check"></i>
                                                         </label>
+                                                        <span>Savings</span>
                                                     </li>
                                                 </ul>
                                             </div>
@@ -624,7 +630,7 @@
                         <!-- <div class="row"> -->
                         <div class="col-lg-11"></div>
                         <div class="col-lg-1">
-                            <button type="button" id="btnBudgetCalculator" class="btn-white btn-circle btn-xxl ">
+                            <button type="button" id="btnBudgetCalculator" class="btn-ulster ">
                             <!-- <i class="fa fa-calculator fa-3x " aria-hidden="true "></i> -->
                             <img src="/static/css/logo.png">
                         </button>

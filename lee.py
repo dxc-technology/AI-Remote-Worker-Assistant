@@ -64,16 +64,18 @@ def optimize():
     mmonthly_maintenance = 110.0
     # Actual expense for each category
     #_input = request.args['input']  
-    monthly_home_utility_spend = float(request.form['sliderHome'])
-    monthly_transportation_spend = float(request.form['sliderTransportation'])
-    monthly_shopping_groceries_spend =float(request.form['sliderShopping'])
-    monthly_personal_family_care_spend = float(request.form['sliderPersonal'])
-    monthly_restaurant_dinning_spend = float(request.form['sliderRestaurant'])
-    monthly_insurance_spend = float(request.form['sliderShield'])
-    monthly_entertainment_spend = float(request.form['sliderVideo'])
-    monthly_travel_spend = float(request.form['sliderTravel'])
-    monthly_health_spend = float(request.form['sliderHealth'])
-    monthly_maintenance_spend = float(request.form['sliderMaintenance'])
+    monthly_home_utility_spend = request.form['sliderHome']
+    monthly_transportation_spend = request.form['sliderTransportation']
+    monthly_shopping_groceries_spend =request.form['sliderShopping']
+    monthly_personal_family_care_spend = request.form['sliderPersonal']
+    monthly_restaurant_dinning_spend = request.form['sliderRestaurant']
+    monthly_insurance_spend = request.form['sliderShield']
+    monthly_entertainment_spend = request.form['sliderVideo']
+    monthly_travel_spend = request.form['sliderTravel']
+    monthly_health_spend = request.form['sliderHealth']
+    monthly_maintenance_spend = request.form['sliderMaintenance']
+    
+  
     # Define the decision variables
     home_utility_perct_adjustment = LpVariable("Home_Utilities",0,0.2)
     transportation_perct_adjustment = LpVariable("Transportation",0,0.20)

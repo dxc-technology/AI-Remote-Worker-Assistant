@@ -127,37 +127,75 @@
                         },
                         title: {
                             display: false,
-                            text: 'Predicted world population (millions) in 2050'
+                            text: ''
                         },
                         plugins: {
                             labels: [{
-                                // render: 'image',
-                                // images: [{
-                                //     src: '/static/icons/Home.png',
-                                //     width: 32,
-                                //     height: 22
-                                // }, {
-                                //     src: '/static/icons/Home.png',
-                                //     width: 32,
-                                //     height: 22
-                                // }, {
-                                //     src: '/static/icons/Home.png',
-                                //     width: 32,
-                                //     height: 22
-                                // }]
-                            }, {
-                                render: 'label',
-                                position: 'outside'
-                            }, {
-                                render: 'value',
-                                position: 'border',
-                                fontColor: 'white',
-                                textMargin: 4,
-                                outsidePadding: 4,
-                                fontSize: 12,
-                                textShadow: true,
-                                fontStyle: 'bold'
-                            }]
+                                    render: 'image',
+                                    images: [{
+                                        src: '/static/icons/Home.png',
+                                        width: 30,
+                                        height: 25
+                                    }, {
+                                        src: '/static/icons/Transportation.png',
+                                        width: 30,
+                                        height: 25
+                                    }, {
+                                        src: '/static/icons/Shopping.png',
+                                        width: 30,
+                                        height: 25
+                                    }, {
+                                        src: '/static/icons/Family.png',
+                                        width: 30,
+                                        height: 25
+                                    }, {
+                                        src: '/static/icons/Restaurants.png',
+                                        width: 30,
+                                        height: 25
+                                    }, {
+                                        src: '/static/icons/Insurance.png',
+                                        width: 30,
+                                        height: 25
+                                    }, {
+                                        src: '/static/icons/Entertainment.png',
+                                        width: 30,
+                                        height: 25
+                                    }, {
+                                        src: '/static/icons/Travel.png',
+                                        width: 30,
+                                        height: 25
+                                    }, {
+                                        src: '/static/icons/Healthcare.png',
+                                        width: 30,
+                                        height: 25
+                                    }, {
+                                        src: '/static/icons/Maintenance.png',
+                                        width: 30,
+                                        height: 25
+                                    }, {
+                                        src: '/static/icons/Savings.png',
+                                        width: 30,
+                                        height: 25
+                                    }]
+                                },
+                                // {
+                                //     render: 'label',
+                                //     position: 'outside'
+                                // }, 
+                                {
+                                    render: function(args) {
+                                        return '$' + args.value;
+                                    },
+                                    position: 'outside',
+                                    fontColor: 'black',
+                                    textMargin: 4,
+                                    outsidePadding: 4,
+                                    fontSize: 15,
+                                    textShadow: true,
+                                    fontStyle: 'bold',
+                                    arc: true
+                                }
+                            ]
                         }
                     }
                 });

@@ -7,6 +7,7 @@ import pulp
 from flask_cors import CORS
 from pulp import LpVariable,LpProblem,LpStatus,LpMaximize,LpMinimize, value, lpSum
 import ast
+import requests
 
 
 from flask import Flask, render_template, request, redirect, url_for,jsonify
@@ -91,6 +92,21 @@ def optimize():
         new_budget = {}
 
     return jsonify(new_budget)
+
+
+@app.route('/cma9_connect', methods=['GET', 'POST'])
+def cma9_connect():
+    # Authorize a CMA-9 connecton
+    params = {
+        'app': 'demo-team-5cf68683-1d9a-45aa-a24f-d61a26cd60d6',
+    }
+    resp = request.get('https://api.sandbox.ulsterbank.ie/.well-known/openid-configuration', params=params)
+    if resp.status_code != 200:
+        # Something went wrong with the connection
+        return 'GET /tasks/ {}'.format(resp.status_code)
+    # Pull transaction data and update the AI
+    for customer_transaction in resp.json():
+        optimize('{} {}'.format(customer_transaction['id'], customer_transaction['summary']))
 
 
 if __name__ == '__main__':

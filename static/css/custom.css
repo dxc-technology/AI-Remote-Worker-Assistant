@@ -12,20 +12,10 @@ body {
     background-color: Transparent;
     border: none;
     padding-bottom: 4rem;
-    /* width: 400px;
-    height: 30px;
-    background-repeat: no-repeat;
-    
-    cursor: pointer;
-    overflow: hidden;
-    outline: none; */
+    position: fixed;
+    right: 10px;
+    bottom: 10px;
 }
-
-
-/* 
-.img-ulster {
-    z-index: -5;
-} */
 
 .category-icon {
     margin: 0;

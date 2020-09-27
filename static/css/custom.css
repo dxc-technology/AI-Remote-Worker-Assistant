@@ -1,7 +1,9 @@
 body {
     /* background-image: url('static/images/lee-gradient-background.png'); */
     /* background-image: url("/static/css/lee-background-fit.png"); */
-    background: url("https://i.ibb.co/dgXL5ph/lee-background-no-logo.png") no-repeat center center fixed;
+    /* background: url("https://i.ibb.co/dgXL5ph/lee-background-no-logo.png") no-repeat center center fixed; */
+    background: url("https://i.ibb.co/PtF3Lhf/lee-background-no-logo-up.png") no-repeat center center fixed;
+    /* no logo up*/
     -webkit-background-size: cover;
     -moz-background-size: cover;
     background-size: cover;
@@ -11,10 +13,11 @@ body {
 .btn-ulster {
     background-color: Transparent;
     border: none;
-    padding-bottom: 4rem;
+    padding-bottom: 2rem;
+    padding-right: 2rem;
     position: fixed;
-    right: 10px;
-    bottom: 10px;
+    right: 0px;
+    bottom: 5px;
 }
 
 .category-icon {
